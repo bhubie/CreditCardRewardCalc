@@ -1,0 +1,32 @@
+.header {
+	grid-area: header;
+	text-align:center;
+}
+
+.spendature {
+	grid-area: spendature;
+	text-align:center;
+}
+
+.button {
+	grid-area: button;
+	text-align:center;
+}
+
+.spendatures {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 5px;
+	grid-template-areas:
+    "header  header"
+		"spendature spendature"
+		"spendature spendature"
+		"spendature spendature"
+		"spendature spendature"
+		"button button";
+}
+
