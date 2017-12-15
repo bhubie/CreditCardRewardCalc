@@ -22,6 +22,10 @@
 
 */
 
+function round(value, decimals) {
+	return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
 const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryCap, categoryFactor, creditCardPointValue, creditCardBaseFactor) =>
 	
 	//return categoryBonus;
@@ -70,7 +74,8 @@ const calcMonthlyRewardValue = (arrayOfRewardCategoryBonus, baseBonus) => new Pr
 const calcYearlyRewardValue = (monthlyRewardValue) => new Promise((resolve, reject) => {
 	try {
 		let yearlyRewardValue = monthlyRewardValue * 12;
-		resolve(yearlyRewardValue);
+
+		resolve(round(yearlyRewardValue, 2));
 	}
 	catch (e) {
 		reject(e);

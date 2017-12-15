@@ -109,7 +109,7 @@ describe('CreditCardRewardCalculator.js test', () => {
 			return calcMonthlyRewardValue(mockBonus, 8)
 				.then((monthlyRewardValue) => calcYearlyRewardValue(monthlyRewardValue))
 				.then((yearlyRewardValue) => {
-					expect(yearlyRewardValue).toBe(19.80 * 12);
+					expect(yearlyRewardValue).toBe(237.60);
 				});
 		});
 	});
