@@ -67,6 +67,23 @@ let MockCreditCard = {
 	RewardFiveYears: 0
 };
 
+const testRewardCategory = (rewardCategory, expectedValues, baseFactor, pointValue, spendatureCategory) => {
+
+	it(`should have a factor of ${expectedValues.Factor}`, () => {
+		expect(rewardCategory.Factor).toBe(expectedValues.Factor);
+	});
+
+	it(`should have a cap of ${expectedValues.Cap}`, () => {
+		expect(rewardCategory.Cap).toBe(expectedValues.Cap);
+	});
+
+	it(`should calculate a bonus of ${expectedValues.Bonus}`, async () => {
+		const bonus = await calcCategoryBonus(spendatureCategory.monthlyValue, spendatureCategory.yearlyValue, rewardCategory.Cap, rewardCategory.Factor,
+			pointValue, baseFactor);
+		expect(bonus).toBe(expectedValues.Bonus);
+	});
+};
+
 const testCreditCard = (creditCard, expectedValues) => {
 	it(`should have an institution named ${expectedValues.Institution}`, () => {
 		expect(creditCard.Institution).toBe(expectedValues.Institution);
@@ -221,125 +238,39 @@ const testCreditCard = (creditCard, expectedValues) => {
 		describe('Reward Category Restaurants', () => {
 			let restuarants = creditCard.RewardCategories.filter(category => category.Name === 'Restaurants')[0];
 			let restaurantValues = expectedValues.RewardCategories.filter(category => category.Name === 'Restaurants')[0];
-			
-			it(`should have a factor of ${restaurantValues.Factor}`, () => {
-				expect(restuarants.Factor).toBe(restaurantValues.Factor);
-			});
-		
-			it(`should have a cap of ${restaurantValues.Cap}`, () => {
-				expect(restuarants.Cap).toBe(restaurantValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${restaurantValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[0].monthlyValue,
-				defaultSpendatures[0].yearlyValue, restuarants.Cap, restuarants.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(restaurantValues.Bonus);
-				}));
+			testRewardCategory(restuarants, restaurantValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[0]);
 		});
 		
 		describe('Reward Category Groceries', () => {
 			let groceries = creditCard.RewardCategories.filter(category => category.Name === 'Groceries')[0];
 			let groceryValues = expectedValues.RewardCategories.filter(category => category.Name === 'Groceries')[0];
-			
-			it(`should have a factor of ${groceryValues.Factor}`, () => {
-				expect(groceries.Factor).toBe(groceryValues.Factor);
-			});
-		
-			it(`should have a cap of ${groceryValues.Cap}`, () => {
-				expect(groceries.Cap).toBe(groceryValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${groceryValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[1].monthlyValue,
-				defaultSpendatures[1].yearlyValue, groceries.Cap, groceries.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(groceryValues.Bonus);
-				}));
+			testRewardCategory(groceries, groceryValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[1]);
 		});
 		
 		describe('Reward Category Air Travel', () => {
 			let airTravel = creditCard.RewardCategories.filter(category => category.Name === 'Air Travel')[0];
 			let airTravelValues = expectedValues.RewardCategories.filter(category => category.Name === 'Air Travel')[0];
-			
-			it(`should have a factor of ${airTravelValues.Factor}`, () => {
-				expect(airTravel.Factor).toBe(airTravelValues.Factor);
-			});
-		
-			it(`should have a cap of ${airTravelValues.Cap}`, () => {
-				expect(airTravel.Cap).toBe(airTravelValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${airTravelValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[2].monthlyValue,
-				defaultSpendatures[2].yearlyValue, airTravel.Cap, airTravel.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(airTravelValues.Bonus);
-				}));
+			testRewardCategory(airTravel, airTravelValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[2]);
 		});
 		
 		describe('Reward Category Other Travel', () => {
 			let otherTravel = creditCard.RewardCategories.filter(category => category.Name === 'Other Travel')[0];
 			let otherTravelValues = expectedValues.RewardCategories.filter(category => category.Name === 'Other Travel')[0];
-
-			it(`should have a factor of ${otherTravelValues.Factor}`, () => {
-				expect(otherTravel.Factor).toBe(otherTravelValues.Factor);
-			});
-		
-			it(`should have a cap of ${otherTravelValues.Cap}`, () => {
-				expect(otherTravel.Cap).toBe(otherTravelValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${otherTravelValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[3].monthlyValue,
-				defaultSpendatures[3].yearlyValue, otherTravel.Cap, otherTravel.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(otherTravelValues.Bonus);
-				}));
+			testRewardCategory(otherTravel, otherTravelValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[3]);
 		});
 		
 		describe('Reward Category Gas', () => {
 			let gas = creditCard.RewardCategories.filter(category => category.Name === 'Gas')[0];
 			let gasValues = expectedValues.RewardCategories.filter(category => category.Name === 'Gas')[0];
-			
-			it(`should have a factor of ${gasValues.Factor}`, () => {
-				expect(gas.Factor).toBe(gasValues.Factor);
-			});
-		
-			it(`should have a cap of ${gasValues.Cap}`, () => {
-				expect(gas.Cap).toBe(gasValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${gasValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[4].monthlyValue,
-				defaultSpendatures[4].yearlyValue, gas.Cap, gas.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(gasValues.Bonus);
-				}));
+			testRewardCategory(gas, gasValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[4]);
 		});
 		
 		describe('Reward Category Amazon', () => {
 			let amazon = creditCard.RewardCategories.filter(category => category.Name === 'Amazon')[0];
 			let amazonValues = expectedValues.RewardCategories.filter(category => category.Name === 'Amazon')[0];
-			
-			it(`should have a factor of ${amazonValues.Factor}`, () => {
-				expect(amazon.Factor).toBe(amazonValues.Factor);
-			});
-		
-			it(`should have a cap of ${amazonValues.Cap}`, () => {
-				expect(amazon.Cap).toBe(amazonValues.Cap);
-			});
-		
-			it(`should calculate a bonus of ${amazonValues.Bonus}`, () => calcCategoryBonus(defaultSpendatures[5].monthlyValue,
-				defaultSpendatures[5].yearlyValue, amazon.Cap, amazon.Factor,
-				creditCard.PointValue, creditCard.BaseFactor)
-				.then((bonus) => {
-					expect(bonus).toBe(amazonValues.Bonus);
-				}));
+			testRewardCategory(amazon, amazonValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[5]);
 		});
 	});
-
-
 };
 
 export { MockCreditCard, testCreditCard };
