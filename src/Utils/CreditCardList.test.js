@@ -1,18 +1,6 @@
 import creditCardList from './CreditCards.json';
 import expect from 'expect';
-import SpendatureCategory from './SpendatureCategory';
-import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from './CreditCardRewardCalculator';
 import { testCreditCard } from './TestHelpers.test.js';
-
-const defaultSpendatures = [new SpendatureCategory('Restaurants', 200),
-	new SpendatureCategory('Groceries', 300),
-	new SpendatureCategory('Air Travel', 50),
-	new SpendatureCategory('Other Travel', 50),
-	new SpendatureCategory('Gas', 80),
-	new SpendatureCategory('Amazon', 200),
-	new SpendatureCategory('Misc', 800)];
-const defaultMonthlyTransactions = 50;
-
 
 let validateCreditCardSpendatureCategory = (rewardCategory) => {
 
