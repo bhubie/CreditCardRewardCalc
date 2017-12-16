@@ -107,9 +107,9 @@ const setRewardCategoryBonuses = async (spendatureCategories, creditCardRewardCa
 const calcAnnualRewardValue = (monthlyTransactions, creditCardMinTransactions, annualRewardValue, bonusReward, travelBonus) => new Promise((resolve, reject) => {
 	try {
 		if (monthlyTransactions > creditCardMinTransactions) {
-			resolve(annualRewardValue + (annualRewardValue * bonusReward) + travelBonus);
+			resolve(round(annualRewardValue + (annualRewardValue * bonusReward) + travelBonus,2));
 		}
-		resolve(annualRewardValue + travelBonus);
+		resolve(round(annualRewardValue + travelBonus,2));
 	}
 	catch (e) {
 		reject(e);
@@ -118,7 +118,7 @@ const calcAnnualRewardValue = (monthlyTransactions, creditCardMinTransactions, a
 
 const calcRewardOneYear = (annualRewardTotal, welcomeBonus, annualFeeYearOne) => new Promise((resolve, reject) => {
 	try {
-		resolve(annualRewardTotal + welcomeBonus - annualFeeYearOne);
+		resolve(round(annualRewardTotal + welcomeBonus - annualFeeYearOne,2));
 	}
 	catch (e) {
 		reject(e);
@@ -127,7 +127,7 @@ const calcRewardOneYear = (annualRewardTotal, welcomeBonus, annualFeeYearOne) =>
 
 const calcRewardTwoYears = (rewardOneYear, annualRewardValue, annualFeeYearOnePlus) =>  new Promise((resolve, reject) => {
 	try {
-		resolve(rewardOneYear + annualRewardValue - annualFeeYearOnePlus);
+		resolve(round(rewardOneYear + annualRewardValue - annualFeeYearOnePlus, 2));
 	}
 	catch (e) {
 		reject(e);
@@ -136,7 +136,7 @@ const calcRewardTwoYears = (rewardOneYear, annualRewardValue, annualFeeYearOnePl
 
 const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOnePlus) =>  new Promise((resolve, reject) => {
 	try {
-		resolve(rewardOneYear + ((annualRewardValue - annualFeeYearOnePlus) * 4));
+		resolve(round(rewardOneYear + ((annualRewardValue - annualFeeYearOnePlus) * 4), 2));
 	}
 	catch (e) {
 		reject(e);

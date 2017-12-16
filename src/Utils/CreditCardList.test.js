@@ -147,9 +147,8 @@ describe('CreditCardList.json', () => {
 	});
 });
 
-describe('American Express Everyday Card', () => {
-	let everyday = creditCardList.creditCards[0];
-
+describe('Amex Everyday Card', () => {
+	const everyday = creditCardList.creditCards[0];
 	const expectedValues = {
 		Institution: 'Amex',
 		Name: 'Everyday',
@@ -203,5 +202,61 @@ describe('American Express Everyday Card', () => {
 	};
 
 	testCreditCard(everyday, expectedValues);
+});
 
+describe('Amex Everyday Preferred Card', () => {
+	const everydayPreferred = creditCardList.creditCards[1];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Everyday Preferred',
+		RewardType: 'Points',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0.50,
+		BonusRewardMinTransaction: 30,
+		WelcomeBonus: 150,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 95,
+		AnnualFeeYearOnePlus: 95,
+		BaseBonus: 8,
+		MonthlyRewardValue: 23.60,
+		YearlyRewardValue: 283.20,
+		AnnualRewardTotal: 424.80,
+		RewardYearOne: 479.80,
+		RewardYearTwo: 809.60,
+		RewardYearFive: 1799.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 3,
+			Cap: 6000,
+			Bonus: 9
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Gas',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1.60
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(everydayPreferred, expectedValues);
 });
