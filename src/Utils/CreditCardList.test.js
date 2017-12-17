@@ -303,3 +303,60 @@ describe('Amex Blue Delta SkyMiles', () => {
 
 	testCreditCard(blueDeltaSkyMiles, expectedValues);
 });
+
+describe('Amex Gold Delta SkyMiles', () => {
+	const goldDeltaSkyMiles = creditCardList.creditCards[3];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Gold Delta SkyMiles',
+		RewardType: 'Airfare',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 600,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 95,
+		BaseBonus: 8,
+		MonthlyRewardValue: 17.30,
+		YearlyRewardValue: 207.60,
+		AnnualRewardTotal: 207.60,
+		RewardYearOne: 807.60,
+		RewardYearTwo: 920.20,
+		RewardYearFive: 1258.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3
+		}, {
+			Name: 'Air Travel',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .80
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(goldDeltaSkyMiles, expectedValues);
+});
