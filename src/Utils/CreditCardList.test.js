@@ -23,13 +23,6 @@ let validateCreditCardSpendatureCategory = (rewardCategory) => {
 			expect(typeof rewardCategory.Cap).toBe('number');
 		});
 	});
-
-	it('should contain a Bonus', () => {
-		creditCardList.creditCards.forEach(creditCard => {
-			expect(rewardCategory.Bonus).toBeDefined();
-			expect(typeof rewardCategory.Bonus).toBe('number');
-		});
-	});
 };
 
 describe('CreditCardList.json', () => {
@@ -63,13 +56,6 @@ describe('CreditCardList.json', () => {
 		creditCardList.creditCards.forEach(creditCard => {
 			expect(creditCard.BaseFactor).toBeDefined();
 			expect(typeof creditCard.BaseFactor).toBe('number');
-		});
-	});
-
-	it('should contain a BaseBonus', () => {
-		creditCardList.creditCards.forEach(creditCard => {
-			expect(creditCard.BaseBonus).toBeDefined();
-			expect(typeof creditCard.BaseBonus).toBe('number');
 		});
 	});
 

@@ -1,8 +1,6 @@
 import { h, Component } from 'preact';
 import { calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from '../../Utils/CreditCardRewardCalculator.js';
 
-//import CreditCardList from '../../Utils/CreditCards.json';
-
 export default class CreditCards extends Component {
 
 	async calculateCreditCardRewards(nextProps){
@@ -37,8 +35,6 @@ export default class CreditCards extends Component {
 		this.setState({
 			creditCards: await Promise.all(creditCards)
 		});
-
-		//console.log(this.state.creditCards);
 	}
 	
 	constructor() {
@@ -53,8 +49,6 @@ export default class CreditCards extends Component {
 		const res = await fetch('Utils/CreditCards.json');
 		const j = await res.json();
 		this.setState({ creditCards: j.creditCards });
-
-		//console.log(this.state.creditCards);
 	}
 
 	componentWillReceiveProps (nextProps){
