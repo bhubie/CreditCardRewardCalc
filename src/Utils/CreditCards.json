@@ -179,6 +179,51 @@
             "TravelBonus": 0,
             "AnnualFeeYearOne": 0,
             "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "Amex",
+            "Name": "Platinum Delta SkyMiles",
+            "RewardType": "Airfare",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 700.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 195,
+            "AnnualFeeYearOnePlus": 195
         }
     ]
 }
