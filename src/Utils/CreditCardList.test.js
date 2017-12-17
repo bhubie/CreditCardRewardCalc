@@ -246,3 +246,60 @@ describe('Amex Everyday Preferred Card', () => {
 
 	testCreditCard(everydayPreferred, expectedValues);
 });
+
+describe('Amex Blue Delta SkyMiles', () => {
+	const blueDeltaSkyMiles = creditCardList.creditCards[2];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Blue Delta SkyMiles',
+		RewardType: 'Airfare',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 100,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 0,
+		BaseBonus: 8,
+		MonthlyRewardValue: 19.30,
+		YearlyRewardValue: 231.60,
+		AnnualRewardTotal: 231.60,
+		RewardYearOne: 331.60,
+		RewardYearTwo: 563.20,
+		RewardYearFive: 1258.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 4
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3
+		}, {
+			Name: 'Air Travel',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .80
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(blueDeltaSkyMiles, expectedValues);
+});
