@@ -417,3 +417,60 @@ describe('Amex Platinum Delta SkyMiles', () => {
 
 	testCreditCard(platinumDeltaSkyMiles, expectedValues);
 });
+
+describe('Amex Delta Reserve', () => {
+	const reserveDeltaSkyMiles = creditCardList.creditCards[5];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Delta Reserve',
+		RewardType: 'Airfare',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 400,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 450,
+		AnnualFeeYearOnePlus: 450,
+		BaseBonus: 8,
+		MonthlyRewardValue: 17.30,
+		YearlyRewardValue: 207.60,
+		AnnualRewardTotal: 207.60,
+		RewardYearOne: 157.60,
+		RewardYearTwo: -84.80,
+		RewardYearFive: -812.0,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3
+		}, {
+			Name: 'Air Travel',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .80
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(reserveDeltaSkyMiles, expectedValues);
+});
