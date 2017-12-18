@@ -1,10 +1,12 @@
-const formatAsDollar = (number) => {
+const formatAsCurrency = (number) => {
 	if (isNaN(number)) {
 		return number;
 	}
-    
-	return '$' + Number(number).toFixed(2);
+	
+	const options = { style: 'currency', currency: 'USD' };
+	const currencyFormat = new Intl.NumberFormat('en-US', options);
+	return currencyFormat.format(number);
 
 };
 
-export { formatAsDollar };
+export { formatAsCurrency };
