@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import style from './style';
 import { calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from '../../Utils/CreditCardRewardCalculator.js';
 
 export default class CreditCards extends Component {
@@ -61,19 +62,17 @@ export default class CreditCards extends Component {
 
 	render() {
 
-		let creditCardRows = this.state.creditCards.map((creditCard) => {
-			return (<tr>
-				<td>{creditCard.Name}</td>
-				<td>{creditCard.RewardType}</td>
-				<td>{creditCard.RewardOneYear}</td>
-				<td>{creditCard.RewardTwoYears}</td>
-				<td>{creditCard.RewardFiveYears}</td>
-			</tr>);
-		});
+		let creditCardRows = this.state.creditCards.map((creditCard) => (<tr>
+			<td>{creditCard.Name}</td>
+			<td>{creditCard.RewardType}</td>
+			<td class={style.tableColumnNumber}>{creditCard.RewardOneYear}</td>
+			<td class={style.tableColumnNumber}>{creditCard.RewardTwoYears}</td>
+			<td class={style.tableColumnNumber}>{creditCard.RewardFiveYears}</td>
+		</tr>));
 
 		return (
 			<div>
-				<table>
+				<table class={style.table}>
 					<thead>
 						<th>Credit Card Name</th>
 						<th>Type</th>
