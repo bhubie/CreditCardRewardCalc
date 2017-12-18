@@ -17,6 +17,9 @@ export default class App extends Component {
 			spendatures,
 			monthlyTransactions
 		});
+
+		const creditCardTable = document.getElementById('creditCardTable');
+		creditCardTable.scrollIntoView();
 	};
 
 	render() {

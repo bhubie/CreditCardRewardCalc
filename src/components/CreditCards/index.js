@@ -73,7 +73,7 @@ export default class CreditCards extends Component {
 
 		return (
 			<div>
-				<table class={style.table}>
+				<table class={style.table} id="creditCardTable">
 					<thead>
 						<th>Credit Card Name</th>
 						<th>Type</th>
