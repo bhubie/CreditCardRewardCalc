@@ -474,3 +474,60 @@ describe('Amex Delta Reserve', () => {
 
 	testCreditCard(reserveDeltaSkyMiles, expectedValues);
 });
+
+describe('Amex Premier Rewards Gold', () => {
+	const premierRewardsGold = creditCardList.creditCards[6];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Premier Rewards Gold',
+		RewardType: 'Points',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 500,
+		TravelBonus: 100,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 195,
+		BaseBonus: 8,
+		MonthlyRewardValue: 23.60,
+		YearlyRewardValue: 283.20,
+		AnnualRewardTotal: 383.20,
+		RewardYearOne: 883.20,
+		RewardYearTwo: 1071.40,
+		RewardYearFive: 1636.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 4
+		}, {
+			Name: 'Groceries',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 6
+		}, {
+			Name: 'Air Travel',
+			Factor: 3,
+			Cap: 0,
+			Bonus: 1.50
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .5
+		}, {
+			Name: 'Gas',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1.60
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(premierRewardsGold, expectedValues);
+});
