@@ -1,6 +1,16 @@
 import creditCardList from './CreditCards.json';
 import expect from 'expect';
 import { testCreditCard } from './TestHelpers.test.js';
+import SpendatureCategory from './SpendatureCategory';
+
+const defaultSpendatures = [new SpendatureCategory('Restaurants', 200),
+	new SpendatureCategory('Groceries', 300),
+	new SpendatureCategory('Air Travel', 50),
+	new SpendatureCategory('Other Travel', 50),
+	new SpendatureCategory('Gas', 80),
+	new SpendatureCategory('Amazon', 200),
+	new SpendatureCategory('Misc', 800)];
+const defaultMonthlyTransactions = 50;
 
 let validateCreditCardSpendatureCategory = (rewardCategory) => {
 
@@ -188,7 +198,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(everyday, expectedValues);
+		testCreditCard(everyday, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Everyday Preferred Card', () => {
@@ -245,7 +255,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(everydayPreferred, expectedValues);
+		testCreditCard(everydayPreferred, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Blue Delta SkyMiles', () => {
@@ -302,7 +312,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(blueDeltaSkyMiles, expectedValues);
+		testCreditCard(blueDeltaSkyMiles, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Gold Delta SkyMiles', () => {
@@ -359,7 +369,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(goldDeltaSkyMiles, expectedValues);
+		testCreditCard(goldDeltaSkyMiles, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Platinum Delta SkyMiles', () => {
@@ -416,7 +426,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(platinumDeltaSkyMiles, expectedValues);
+		testCreditCard(platinumDeltaSkyMiles, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Delta Reserve', () => {
@@ -473,7 +483,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(reserveDeltaSkyMiles, expectedValues);
+		testCreditCard(reserveDeltaSkyMiles, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Premier Rewards Gold', () => {
@@ -530,7 +540,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(premierRewardsGold, expectedValues);
+		testCreditCard(premierRewardsGold, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Platinum Card', () => {
@@ -587,7 +597,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(platinumCard, expectedValues);
+		testCreditCard(platinumCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Green Card', () => {
@@ -644,7 +654,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(greenCard, expectedValues);
+		testCreditCard(greenCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Blue', () => {
@@ -701,7 +711,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(blueCard, expectedValues);
+		testCreditCard(blueCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Blue Cash', () => {
@@ -758,7 +768,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(blueCashCard, expectedValues);
+		testCreditCard(blueCashCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Blue Cash Preferred', () => {
@@ -815,7 +825,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(blueCashPreferredCard, expectedValues);
+		testCreditCard(blueCashPreferredCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Starwood Preferred Guest', () => {
@@ -872,7 +882,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(starwoodPreferredGuestCard, expectedValues);
+		testCreditCard(starwoodPreferredGuestCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Hilton Honors', () => {
@@ -929,7 +939,7 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(hiltonHonorsCard, expectedValues);
+		testCreditCard(hiltonHonorsCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
 	describe('Hilton Honors Surpass', () => {
@@ -986,6 +996,6 @@ describe('Amex', () => {
 			}]
 		};
 	
-		testCreditCard(hiltonHonorsSurpassCard, expectedValues);
+		testCreditCard(hiltonHonorsSurpassCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 });
