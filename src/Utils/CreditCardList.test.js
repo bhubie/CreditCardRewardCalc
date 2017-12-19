@@ -645,3 +645,60 @@ describe('Amex Green Card', () => {
 
 	testCreditCard(greenCard, expectedValues);
 });
+
+describe('Amex Blue', () => {
+	const blueCard = creditCardList.creditCards[9];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Blue',
+		RewardType: 'Points',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 0,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 0,
+		BaseBonus: 8,
+		MonthlyRewardValue: 16.80,
+		YearlyRewardValue: 201.60,
+		AnnualRewardTotal: 201.60,
+		RewardYearOne: 201.60,
+		RewardYearTwo: 403.20,
+		RewardYearFive: 1008.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .50
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .50
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .80
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(blueCard, expectedValues);
+});
