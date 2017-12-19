@@ -702,3 +702,60 @@ describe('Amex Blue', () => {
 
 	testCreditCard(blueCard, expectedValues);
 });
+
+describe('Amex Blue Cash', () => {
+	const blueCashCard = creditCardList.creditCards[10];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Blue Cash',
+		RewardType: 'Cash',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 200,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 0,
+		BaseBonus: 8,
+		MonthlyRewardValue: 23.60,
+		YearlyRewardValue: 283.20,
+		AnnualRewardTotal: 283.20,
+		RewardYearOne: 483.20,
+		RewardYearTwo: 766.40,
+		RewardYearFive: 1616.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 3,
+			Cap: 6000,
+			Bonus: 9
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .50
+		}, {
+			Name: 'Other Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .50
+		}, {
+			Name: 'Gas',
+			Factor: 2,
+			Cap: 0,
+			Bonus: 1.60
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(blueCashCard, expectedValues);
+});
