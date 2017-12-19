@@ -930,3 +930,60 @@ describe('Amex Hilton Honors', () => {
 
 	testCreditCard(hiltonHonorsCard, expectedValues);
 });
+
+describe('Amex Hilton Honors Surpass', () => {
+	const hiltonHonorsSurpassCard = creditCardList.creditCards[14];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Hilton Honors Surpass',
+		RewardType: 'Hotel',
+		BaseFactor: 1,
+		PointValue: 0.006,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 450,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 75,
+		AnnualFeeYearOnePlus: 75,
+		BaseBonus: 4.80,
+		MonthlyRewardValue: 30.78,
+		YearlyRewardValue: 369.36,
+		AnnualRewardTotal: 369.36,
+		RewardYearOne: 744.36,
+		RewardYearTwo: 1038.72,
+		RewardYearFive: 1921.80,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 6,
+			Cap: 0,
+			Bonus: 7.20
+		}, {
+			Name: 'Groceries',
+			Factor: 6,
+			Cap: 0,
+			Bonus: 10.80
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .30
+		}, {
+			Name: 'Other Travel',
+			Factor: 12,
+			Cap: 0,
+			Bonus: 3.60
+		}, {
+			Name: 'Gas',
+			Factor: 6,
+			Cap: 0,
+			Bonus: 2.88
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 1.20
+		}]
+	};
+
+	testCreditCard(hiltonHonorsSurpassCard, expectedValues);
+});
