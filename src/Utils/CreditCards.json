@@ -494,6 +494,51 @@
             "TravelBonus": 0,
             "AnnualFeeYearOne": 0,
             "AnnualFeeYearOnePlus": 0
+        },
+        {
+            "Institution": "Amex",
+            "Name": "Blue Cash Preferred",
+            "RewardType": "Cash",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 6,
+                    "Cap": 6000
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 3,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 250,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 95,
+            "AnnualFeeYearOnePlus": 95
         }
     ]
 }
