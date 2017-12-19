@@ -816,3 +816,60 @@ describe('Amex Blue Cash Preferred', () => {
 
 	testCreditCard(blueCashPreferredCard, expectedValues);
 });
+
+describe('Amex Starwood Preferred Guest', () => {
+	const starwoodPreferredGuestCard = creditCardList.creditCards[12];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Starwood Preferred Guest',
+		RewardType: 'Hotel',
+		BaseFactor: 1,
+		PointValue: 0.018,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 300,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 95,
+		BaseBonus: 14.40,
+		MonthlyRewardValue: 33.84,
+		YearlyRewardValue: 406.08,
+		AnnualRewardTotal: 406.08,
+		RewardYearOne: 706.08,
+		RewardYearTwo: 1017.16,
+		RewardYearFive: 1950.40,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3.60
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 5.40
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .90
+		}, {
+			Name: 'Other Travel',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 4.50
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 1.44
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3.60
+		}]
+	};
+
+	testCreditCard(starwoodPreferredGuestCard, expectedValues);
+});

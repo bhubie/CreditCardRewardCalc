@@ -43,7 +43,7 @@ const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryC
 			else {
 				categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
 			}
-			resolve(categoryBonus);
+			resolve(round(categoryBonus, 2));
 		}
 		catch (e){
 			reject(e);
@@ -55,7 +55,7 @@ const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryC
 const calcBaseBonus = (creditCardBaseFactor, creditCardPointValue, monthlyMiscExpense) => new Promise((resolve, reject) => {
 	try {
 		let baseBonus = creditCardBaseFactor * creditCardPointValue * monthlyMiscExpense;
-		resolve(baseBonus);
+		resolve(round(baseBonus, 2));
 	}
 	catch (e){
 		reject(e);
@@ -64,7 +64,7 @@ const calcBaseBonus = (creditCardBaseFactor, creditCardPointValue, monthlyMiscEx
 
 const calcMonthlyRewardValue = (arrayOfRewardCategoryBonus, baseBonus) => new Promise((resolve, reject) => {
 	try {
-		resolve(arrayOfRewardCategoryBonus.reduce((accum, val) => accum + Number(val), 0) + baseBonus);
+		resolve(round(arrayOfRewardCategoryBonus.reduce((accum, val) => accum + Number(val), 0) + baseBonus, 2));
 	}
 	catch (e){
 		reject(e);
