@@ -30,8 +30,7 @@ export default class CreditCards extends Component {
 						
 			creditCard.RewardFiveYears = await calcRewardFiveYears(creditCard.RewardOneYear, creditCard.AnnualRewardTotal,
 				creditCard.AnnualFeeYearOnePlus);
-			
-			console.log(creditCard);
+	
 			return creditCard;
 		});
 
