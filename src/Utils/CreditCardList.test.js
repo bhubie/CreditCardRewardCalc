@@ -531,3 +531,60 @@ describe('Amex Premier Rewards Gold', () => {
 
 	testCreditCard(premierRewardsGold, expectedValues);
 });
+
+describe('Amex Platinum Card', () => {
+	const platinumCard = creditCardList.creditCards[7];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Platinum Card',
+		RewardType: 'Points',
+		BaseFactor: 1,
+		PointValue: 0.01,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 600,
+		TravelBonus: 200,
+		AnnualFeeYearOne: 550,
+		AnnualFeeYearOnePlus: 550,
+		BaseBonus: 8,
+		MonthlyRewardValue: 20.80,
+		YearlyRewardValue: 249.60,
+		AnnualRewardTotal: 449.60,
+		RewardYearOne: 499.60,
+		RewardYearTwo: 399.20,
+		RewardYearFive: 98.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}, {
+			Name: 'Groceries',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 3
+		}, {
+			Name: 'Air Travel',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 2.50
+		}, {
+			Name: 'Other Travel',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 2.50
+		}, {
+			Name: 'Gas',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .80
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 2
+		}]
+	};
+
+	testCreditCard(platinumCard, expectedValues);
+});
