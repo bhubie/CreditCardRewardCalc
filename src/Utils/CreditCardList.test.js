@@ -873,3 +873,60 @@ describe('Amex Starwood Preferred Guest', () => {
 
 	testCreditCard(starwoodPreferredGuestCard, expectedValues);
 });
+
+describe('Amex Hilton Honors', () => {
+	const hiltonHonorsCard = creditCardList.creditCards[13];
+	const expectedValues = {
+		Institution: 'Amex',
+		Name: 'Hilton Honors',
+		RewardType: 'Hotel',
+		BaseFactor: 1,
+		PointValue: 0.006,
+		BonusReward: 0,
+		BonusRewardMinTransaction: 0,
+		WelcomeBonus: 500,
+		TravelBonus: 0,
+		AnnualFeeYearOne: 0,
+		AnnualFeeYearOnePlus: 0,
+		BaseBonus: 4.80,
+		MonthlyRewardValue: 25.80,
+		YearlyRewardValue: 309.60,
+		AnnualRewardTotal: 309.60,
+		RewardYearOne: 809.60,
+		RewardYearTwo: 1119.20,
+		RewardYearFive: 2048.00,
+		RewardCategories: [{
+			Name: 'Restaurants',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 6
+		}, {
+			Name: 'Groceries',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 9
+		}, {
+			Name: 'Air Travel',
+			Factor: 1,
+			Cap: 0,
+			Bonus: .30
+		}, {
+			Name: 'Other Travel',
+			Factor: 7,
+			Cap: 0,
+			Bonus: 2.10
+		}, {
+			Name: 'Gas',
+			Factor: 5,
+			Cap: 0,
+			Bonus: 2.40
+		}, {
+			Name: 'Amazon',
+			Factor: 1,
+			Cap: 0,
+			Bonus: 1.20
+		}]
+	};
+
+	testCreditCard(hiltonHonorsCard, expectedValues);
+});

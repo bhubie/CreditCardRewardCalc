@@ -584,6 +584,51 @@
             "TravelBonus": 0,
             "AnnualFeeYearOne": 0,
             "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "Amex",
+            "Name": "Hilton Honors",
+            "RewardType": "Hotel",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 7,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.006,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 500,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 0
         }
     ]
 }
