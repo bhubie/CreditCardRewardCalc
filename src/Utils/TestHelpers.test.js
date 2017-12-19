@@ -1,15 +1,5 @@
 import expect from 'expect';
-import SpendatureCategory from './SpendatureCategory';
 import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from './CreditCardRewardCalculator';
-
-const defaultSpendatures = [new SpendatureCategory('Restaurants', 200),
-	new SpendatureCategory('Groceries', 300),
-	new SpendatureCategory('Air Travel', 50),
-	new SpendatureCategory('Other Travel', 50),
-	new SpendatureCategory('Gas', 80),
-	new SpendatureCategory('Amazon', 200),
-	new SpendatureCategory('Misc', 800)];
-const defaultMonthlyTransactions = 50;
 
 let MockCreditCard = {
 	Institution: 'Amex',
@@ -84,7 +74,7 @@ const testRewardCategory = (rewardCategory, expectedValues, baseFactor, pointVal
 	});
 };
 
-const testCreditCard = (creditCard, expectedValues) => {
+const testCreditCard = (creditCard, expectedValues, spendatures, monthlyTransactions) => {
 	it(`should have an institution named ${expectedValues.Institution}`, () => {
 		expect(creditCard.Institution).toBe(expectedValues.Institution);
 	});
@@ -130,14 +120,14 @@ const testCreditCard = (creditCard, expectedValues) => {
 	});
 
 	it(`should have a calculated base bonus of ${expectedValues.BaseBonus}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		expect(baseBonus).toBe(expectedValues.BaseBonus);
 	});
 
 	it(`should have a calculated monthly reward value of ${expectedValues.MonthlyRewardValue}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
@@ -146,9 +136,9 @@ const testCreditCard = (creditCard, expectedValues) => {
 	});
 
 	it(`should have a calculated yearly reward value of ${expectedValues.YearlyRewardValue}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
@@ -159,32 +149,32 @@ const testCreditCard = (creditCard, expectedValues) => {
 	});
 
 	it(`should have an annual reward total of ${expectedValues.AnnualRewardTotal}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
 
 		const yearlyRewardValue = await calcYearlyRewardValue(monthlyRewardValue);
 
-		const annualRewardTotal = await calcAnnualRewardValue(defaultMonthlyTransactions, creditCard.BonusRewardMinTransaction,
+		const annualRewardTotal = await calcAnnualRewardValue(monthlyTransactions, creditCard.BonusRewardMinTransaction,
 			yearlyRewardValue, creditCard.BonusReward, creditCard.TravelBonus);
 		
 		expect(annualRewardTotal).toBe(expectedValues.AnnualRewardTotal);
 	});
 
 	it(`should have a reward year one of ${expectedValues.RewardYearOne}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
 
 		const yearlyRewardValue = await calcYearlyRewardValue(monthlyRewardValue);
 
-		const annualRewardTotal = await calcAnnualRewardValue(defaultMonthlyTransactions, creditCard.BonusRewardMinTransaction,
+		const annualRewardTotal = await calcAnnualRewardValue(monthlyTransactions, creditCard.BonusRewardMinTransaction,
 			yearlyRewardValue, creditCard.BonusReward, creditCard.TravelBonus);
 		
 		const rewardYearOne = await calcRewardOneYear(annualRewardTotal, creditCard.WelcomeBonus,
@@ -193,16 +183,16 @@ const testCreditCard = (creditCard, expectedValues) => {
 	});
 
 	it(`should have a reward year two of ${expectedValues.RewardYearTwo}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
 
 		const yearlyRewardValue = await calcYearlyRewardValue(monthlyRewardValue);
 
-		const annualRewardTotal = await calcAnnualRewardValue(defaultMonthlyTransactions, creditCard.BonusRewardMinTransaction,
+		const annualRewardTotal = await calcAnnualRewardValue(monthlyTransactions, creditCard.BonusRewardMinTransaction,
 			yearlyRewardValue, creditCard.BonusReward, creditCard.TravelBonus);
 		
 		const rewardYearOne = await calcRewardOneYear(annualRewardTotal, creditCard.WelcomeBonus,
@@ -213,16 +203,16 @@ const testCreditCard = (creditCard, expectedValues) => {
 	});
 
 	it(`should have a reward year five of ${expectedValues.RewardYearFive}`, async () => {
-		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[6].monthlyValue);
+		const baseBonus = await calcBaseBonus(creditCard.BaseFactor, creditCard.PointValue, spendatures[6].monthlyValue);
 		
-		creditCard.RewardCategories = await setRewardCategoryBonuses(defaultSpendatures, creditCard.RewardCategories
+		creditCard.RewardCategories = await setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
 			,creditCard.PointValue, creditCard.BaseFactor);
 
 		const monthlyRewardValue = await calcMonthlyRewardValue(creditCard.RewardCategories.map(category => category.Bonus), baseBonus);
 
 		const yearlyRewardValue = await calcYearlyRewardValue(monthlyRewardValue);
 
-		const annualRewardTotal = await calcAnnualRewardValue(defaultMonthlyTransactions, creditCard.BonusRewardMinTransaction,
+		const annualRewardTotal = await calcAnnualRewardValue(monthlyTransactions, creditCard.BonusRewardMinTransaction,
 			yearlyRewardValue, creditCard.BonusReward, creditCard.TravelBonus);
 		
 		const rewardYearOne = await calcRewardOneYear(annualRewardTotal, creditCard.WelcomeBonus,
@@ -238,37 +228,37 @@ const testCreditCard = (creditCard, expectedValues) => {
 		describe('Reward Category Restaurants', () => {
 			let restuarants = creditCard.RewardCategories.filter(category => category.Name === 'Restaurants')[0];
 			let restaurantValues = expectedValues.RewardCategories.filter(category => category.Name === 'Restaurants')[0];
-			testRewardCategory(restuarants, restaurantValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[0]);
+			testRewardCategory(restuarants, restaurantValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[0]);
 		});
 		
 		describe('Reward Category Groceries', () => {
 			let groceries = creditCard.RewardCategories.filter(category => category.Name === 'Groceries')[0];
 			let groceryValues = expectedValues.RewardCategories.filter(category => category.Name === 'Groceries')[0];
-			testRewardCategory(groceries, groceryValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[1]);
+			testRewardCategory(groceries, groceryValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[1]);
 		});
 		
 		describe('Reward Category Air Travel', () => {
 			let airTravel = creditCard.RewardCategories.filter(category => category.Name === 'Air Travel')[0];
 			let airTravelValues = expectedValues.RewardCategories.filter(category => category.Name === 'Air Travel')[0];
-			testRewardCategory(airTravel, airTravelValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[2]);
+			testRewardCategory(airTravel, airTravelValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[2]);
 		});
 		
 		describe('Reward Category Other Travel', () => {
 			let otherTravel = creditCard.RewardCategories.filter(category => category.Name === 'Other Travel')[0];
 			let otherTravelValues = expectedValues.RewardCategories.filter(category => category.Name === 'Other Travel')[0];
-			testRewardCategory(otherTravel, otherTravelValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[3]);
+			testRewardCategory(otherTravel, otherTravelValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[3]);
 		});
 		
 		describe('Reward Category Gas', () => {
 			let gas = creditCard.RewardCategories.filter(category => category.Name === 'Gas')[0];
 			let gasValues = expectedValues.RewardCategories.filter(category => category.Name === 'Gas')[0];
-			testRewardCategory(gas, gasValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[4]);
+			testRewardCategory(gas, gasValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[4]);
 		});
 		
 		describe('Reward Category Amazon', () => {
 			let amazon = creditCard.RewardCategories.filter(category => category.Name === 'Amazon')[0];
 			let amazonValues = expectedValues.RewardCategories.filter(category => category.Name === 'Amazon')[0];
-			testRewardCategory(amazon, amazonValues, creditCard.BaseFactor, creditCard.PointValue, defaultSpendatures[5]);
+			testRewardCategory(amazon, amazonValues, creditCard.BaseFactor, creditCard.PointValue, spendatures[5]);
 		});
 	});
 };
