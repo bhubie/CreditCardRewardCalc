@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
-import style from './style';
 import { calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from '../../Utils/CreditCardRewardCalculator.js';
-import { formatAsCurrency } from '../../Utils/Utils.js';
+import  Table  from '../Table/index.js';
+import style from './style';
 
 export default class CreditCards extends Component {
 
@@ -34,12 +34,11 @@ export default class CreditCards extends Component {
 			return creditCard;
 		});
 
-
 		this.setState({
 			creditCards: await Promise.all(creditCards)
 		});
 	}
-	
+
 	constructor() {
 		super();
 		this.state = {
@@ -48,7 +47,6 @@ export default class CreditCards extends Component {
 	}
 
 	async componentDidMount() {
-
 		const res = await fetch('Utils/CreditCards.json');
 		const j = await res.json();
 		this.setState({ creditCards: j.creditCards });
@@ -58,35 +56,48 @@ export default class CreditCards extends Component {
 		this.calculateCreditCardRewards(nextProps);
 	}
 
-	componentWillUnmount() {
-
-	}
-
 	render() {
-
-		let creditCardRows = this.state.creditCards.map((creditCard) => (<tr>
-			<td>{creditCard.Name}</td>
-			<td>{creditCard.RewardType}</td>
-			<td class={style.tableColumnNumber}>{formatAsCurrency(creditCard.RewardOneYear)}</td>
-			<td class={style.tableColumnNumber}>{formatAsCurrency(creditCard.RewardTwoYears)}</td>
-			<td class={style.tableColumnNumber}>{formatAsCurrency(creditCard.RewardFiveYears)}</td>
-		</tr>));
-
 		return (
-			<div>
-				<table class={style.table} id="creditCardTable">
-					<thead>
-						<th>Credit Card Name</th>
-						<th>Type</th>
-						<th>Reward One Year</th>
-						<th>Reward Two Years</th>
-						<th>Reward Five Years</th>
-					</thead>
-					<tbody>
-						{creditCardRows}
-					</tbody>
-				</table>
-			</div>
+			<Table tableData={this.state.creditCards}
+				defaultSortColumn="Institution"
+				columnHeaders={[{
+					friendlyName: 'Institution',
+					name: 'Institution',
+					sortDirection: 'Asc',
+					allowSorting: true,
+					isNumber: false
+				}, {
+					friendlyName: 'Credit Card Name',
+					name: 'Name',
+					sortDirection: 'Desc',
+					allowSorting: true,
+					isNumber: false
+				}, {
+					friendlyName: 'Type',
+					name: 'RewardType',
+					sortDirection: 'Desc',
+					allowSorting: true,
+					isNumber: false
+				}, {
+					friendlyName: 'Reward One Year',
+					name: 'RewardOneYear',
+					sortDirection: 'Desc',
+					allowSorting: true,
+					isNumber: true
+				}, {
+					friendlyName: 'Reward Two Years',
+					name: 'RewardTwoYears',
+					sortDirection: 'Desc',
+					allowSorting: true,
+					isNumber: true
+				}, {
+					friendlyName: 'Reward Five Years',
+					name: 'RewardFiveYears',
+					sortDirection: 'Desc',
+					allowSorting: true,
+					isNumber: true
+				}]}
+			/>
 		);
 	}
 }

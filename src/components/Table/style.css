@@ -1,0 +1,51 @@
+.table {
+    margin: auto;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    border-collapse: collapse;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    
+  }
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #e9ecef;
+}
+
+.table tr {
+    font-size: 0.8125rem;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #e9ecef;
+}
+  
+.table tbody + tbody {
+    border-top: 2px solid #e9ecef;
+}
+  
+.table .table {
+    background-color: #fff;
+}
+
+.tableBordered {
+    border: 1px solid #e9ecef;
+}
+  
+.tableBordered th,
+.tableBordered td {
+    border: 1px solid #e9ecef;
+}
+  
+.tableBordered thead th,
+.tableBordered thead td {
+    border-bottom-width: 2px;
+}
+
+.tableColumnNumber {
+    text-align: center;
+}
