@@ -64,17 +64,17 @@ describe('CreditCardRewardCalculator.js test', () => {
         
 		//TODO Calcualte and fix bonus test
 		it('should calculate a bonus of x when there is a category cap and the yearly category value is greater than the cap', () => {
-			const categoryCap = 1000;
-			const yearlyValue = 2400;
+			const categoryCap = 6000;
+			const yearlyValue = 8400;
 			//const categoryBonus = 
-			return calcCategoryBonus(spendatures[0].monthlyValue,
+			return calcCategoryBonus(700,
 				yearlyValue,
 				categoryCap,
-				MockCreditCard.RewardCategories[0].Factor,
-				MockCreditCard.PointValue,
-				MockCreditCard.BaseFactor)
+				3,
+				.01,
+				1)
 				.then((categoryBonus) => {
-					expect(categoryBonus).toBe(2);
+					expect(categoryBonus).toBe(17);
 				});
 		});
 

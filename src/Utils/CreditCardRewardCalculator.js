@@ -34,7 +34,8 @@ const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryC
 			let categoryBonus = 0;
 			if (categoryCap > 0) {
 				if (categoryYearlyValue > categoryCap) {
-					categoryBonus = (((categoryYearlyValue / 12) * categoryFactor * creditCardPointValue) + (categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue;
+					categoryBonus = ((categoryCap / 12 ) * categoryFactor * creditCardPointValue) + (((categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue);
+					// (((categoryCap / 12) * categoryFactor * creditCardPointValue) + (categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue;
 				}
 				else {
 					categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
