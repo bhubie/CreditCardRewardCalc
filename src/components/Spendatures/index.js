@@ -25,13 +25,13 @@ export default class Spendatures extends Component {
 	constructor() {
 		super();
 		this.state = {
-			spendatures: [new SpendatureCategory('Restaurants', 200),
-				new SpendatureCategory('Groceries', 300),
-				new SpendatureCategory('Air Travel', 50),
-				new SpendatureCategory('Other Travel', 50),
-				new SpendatureCategory('Gas', 80),
-				new SpendatureCategory('Amazon', 200),
-				new SpendatureCategory('Misc', 800)],
+			spendatures: [new SpendatureCategory('Restaurants', 200.00),
+				new SpendatureCategory('Groceries', 300.00),
+				new SpendatureCategory('Air Travel', 50.00),
+				new SpendatureCategory('Other Travel', 50.00),
+				new SpendatureCategory('Gas', 80.00),
+				new SpendatureCategory('Amazon', 200.00),
+				new SpendatureCategory('Misc', 800.00)],
 			monthlyTransactions: 50
 		};
 	}

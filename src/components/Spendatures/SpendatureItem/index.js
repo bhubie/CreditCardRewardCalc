@@ -7,6 +7,9 @@ const SpendatureItem = ({ id, category, monthlyValue, yearlyValue, handleMonthly
 		<Textfield multiline={false}
 			value={monthlyValue} onKeyUp={handleMonthlyValueChange}
 			label={category} id={id}
+			type="number"
+			min="0"
+			step=".01"
 		/>
 	</div>
 	

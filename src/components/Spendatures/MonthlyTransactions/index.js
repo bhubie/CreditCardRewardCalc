@@ -6,7 +6,8 @@ const MonthlyTransactions = ({ monthlyTransactions, handleMonthlyTransactionChan
 	<div>
 		<Textfield multiline={false}
 			value={monthlyTransactions} onKeyUp={handleMonthlyTransactionChange}
-			label="Monthly Transactions"
+			label="CC Transactions"
+			type="number"
 		/>
 	</div>
 	
