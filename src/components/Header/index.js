@@ -1,15 +1,19 @@
-import { h, Component } from 'preact';
+import { h } from 'preact';
 import style from './style';
+import { IconGitHub } from '../Icons/IconGitHub.js';
 
 
-export default class Header extends Component {
-	render() {
+const Header = () => (
+	<header class={style.header}>
+		<h1>Credit Card Reward Calculator</h1>
+		<nav>
+			<a href="https://github.com/bhubie/CreditCardRewardCalc" target="_blank" rel="noopener noreferrer"
+				class={style.headerItemPadding} title="Contribute on Github"
+			>
+				<IconGitHub id="githubIco" className={style.whiteIcon} />
+			</a>
+		</nav>
+	</header>
+);
 
-		
-		return (
-			<header class={style.header}>
-				<h1>Credit Card Reward Calculator</h1>
-			</header>
-		);
-	}
-}
+export { Header };
