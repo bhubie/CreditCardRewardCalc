@@ -1,6 +1,6 @@
 import creditCardList from './CreditCards.json';
 import expect from 'expect';
-import { testCreditCard } from './TestHelpers.test.js';
+import { testCreditCard } from './TestHelpers.js';
 import SpendatureCategory from './SpendatureCategory';
 
 const defaultSpendatures = [new SpendatureCategory('Restaurants', 200),

@@ -26,122 +26,110 @@ function round(value, decimals) {
 	return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryCap, categoryFactor, creditCardPointValue, creditCardBaseFactor) =>
-	
-	//return categoryBonus;
-	 new Promise((resolve, reject) => {
-		try {
-			let categoryBonus = 0;
-			if (categoryCap > 0) {
-				if (categoryYearlyValue > categoryCap) {
-					categoryBonus = ((categoryCap / 12 ) * categoryFactor * creditCardPointValue) + (((categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue);
-					// (((categoryCap / 12) * categoryFactor * creditCardPointValue) + (categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue;
-				}
-				else {
-					categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
-				}
-			}
-			else {
-				categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
-			}
-			resolve(round(categoryBonus, 2));
+const calcCategoryBonus = ( categoryMonthlyValue, categoryYearlyValue, categoryCap, categoryFactor, creditCardPointValue, creditCardBaseFactor) => {
+	let categoryBonus = 0;
+	if (categoryCap > 0) {
+		if (categoryYearlyValue > categoryCap) {
+			categoryBonus = ((categoryCap / 12 ) * categoryFactor * creditCardPointValue) + (((categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue);
+			// (((categoryCap / 12) * categoryFactor * creditCardPointValue) + (categoryYearlyValue - categoryCap) / 12) * creditCardBaseFactor * creditCardPointValue;
 		}
-		catch (e){
-			reject(e);
+		else {
+			categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
 		}
-		
-	})
-;
+	}
+	else {
+		categoryBonus = categoryFactor * creditCardPointValue * categoryMonthlyValue;
+	}
+	return(round(categoryBonus, 2));
+};
 
-const calcBaseBonus = (creditCardBaseFactor, creditCardPointValue, monthlyMiscExpense) => new Promise((resolve, reject) => {
+const calcBaseBonus = (creditCardBaseFactor, creditCardPointValue, monthlyMiscExpense) => {
+	let baseBonus = creditCardBaseFactor * creditCardPointValue * monthlyMiscExpense;
+	return(round(baseBonus, 2));
+};
+
+const calcMonthlyRewardValue = (arrayOfRewardCategoryBonus, baseBonus) => {
+	return(round(arrayOfRewardCategoryBonus.reduce((accum, val) => accum + Number(val), 0) + baseBonus, 2));
+};
+
+const calcYearlyRewardValue = (monthlyRewardValue) => {
+	let yearlyRewardValue = monthlyRewardValue * 12;
+	return(round(yearlyRewardValue, 2));
+};
+
+const setRewardCategoryBonuses = (spendatureCategories, creditCardRewardCategories, creditCardPointValue, creditCardBaseFactor) => {
 	try {
-		let baseBonus = creditCardBaseFactor * creditCardPointValue * monthlyMiscExpense;
-		resolve(round(baseBonus, 2));
-	}
-	catch (e){
-		reject(e);
-	}
-});
-
-const calcMonthlyRewardValue = (arrayOfRewardCategoryBonus, baseBonus) => new Promise((resolve, reject) => {
-	try {
-		resolve(round(arrayOfRewardCategoryBonus.reduce((accum, val) => accum + Number(val), 0) + baseBonus, 2));
-	}
-	catch (e){
-		reject(e);
-	}
-});
-
-const calcYearlyRewardValue = (monthlyRewardValue) => new Promise((resolve, reject) => {
-	try {
-		let yearlyRewardValue = monthlyRewardValue * 12;
-
-		resolve(round(yearlyRewardValue, 2));
-	}
-	catch (e) {
-		reject(e);
-	}
-});
-
-const setRewardCategoryBonuses = async (spendatureCategories, creditCardRewardCategories, creditCardPointValue, creditCardBaseFactor) => {
-	try {
-		//creditCardRewardCategories.forEach(category => {
-		await Promise.all(creditCardRewardCategories.map(async (category) => {
+		creditCardRewardCategories.map((category) => {
 			let spendatureCatValues = spendatureCategories.filter(rewardCategory => rewardCategory.category === category.Name);
 			if (spendatureCatValues[0] !== undefined) {
-				category.Bonus = await calcCategoryBonus(spendatureCatValues[0].monthlyValue,
+				category.Bonus = calcCategoryBonus(spendatureCatValues[0].monthlyValue,
 					spendatureCatValues[0].yearlyValue,
 					category.Cap,
 					category.Factor,
 					creditCardPointValue,
 					creditCardBaseFactor);
 			}
-		}));
+		});
 		return creditCardRewardCategories;
 	}
 	catch (e) {
 		return e;
 	}
-	
 };
 
-const calcAnnualRewardValue = (monthlyTransactions, creditCardMinTransactions, annualRewardValue, bonusReward, travelBonus) => new Promise((resolve, reject) => {
-	try {
+const calcAnnualRewardValue = (monthlyTransactions, creditCardMinTransactions, annualRewardValue, bonusReward, travelBonus) => {
 		if (monthlyTransactions > creditCardMinTransactions) {
-			resolve(round(annualRewardValue + (annualRewardValue * bonusReward) + travelBonus,2));
+			return(round(annualRewardValue + (annualRewardValue * bonusReward) + travelBonus,2));
 		}
-		resolve(round(annualRewardValue + travelBonus,2));
-	}
-	catch (e) {
-		reject(e);
-	}
-});
+		return(round(annualRewardValue + travelBonus,2));
+};
 
-const calcRewardOneYear = (annualRewardTotal, welcomeBonus, annualFeeYearOne) => new Promise((resolve, reject) => {
-	try {
-		resolve(round(annualRewardTotal + welcomeBonus - annualFeeYearOne,2));
-	}
-	catch (e) {
-		reject(e);
-	}
-});
+const calcRewardOneYear = (annualRewardTotal, welcomeBonus, annualFeeYearOne) => {
+	return(round(annualRewardTotal + welcomeBonus - annualFeeYearOne,2));
+};
 
-const calcRewardTwoYears = (rewardOneYear, annualRewardValue, annualFeeYearOnePlus) =>  new Promise((resolve, reject) => {
-	try {
-		resolve(round(rewardOneYear + annualRewardValue - annualFeeYearOnePlus, 2));
-	}
-	catch (e) {
-		reject(e);
-	}
-});
+const calcRewardTwoYears = (rewardOneYear, annualRewardValue, annualFeeYearOnePlus) => {
+	return(round(rewardOneYear + annualRewardValue - annualFeeYearOnePlus, 2));
+};
 
-const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOnePlus) =>  new Promise((resolve, reject) => {
+const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOnePlus) =>  {
+			return(round(rewardOneYear + ((annualRewardValue - annualFeeYearOnePlus) * 4), 2));
+};
+
+const calcCreditCardRewards = (creditCards, spendatures, monthlyTransactions) => new Promise((resolve, reject) => {
 	try {
-		resolve(round(rewardOneYear + ((annualRewardValue - annualFeeYearOnePlus) * 4), 2));
+		resolve(creditCards.map((creditCard) => {
+				
+			creditCard.RewardCategories = setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
+				,creditCard.PointValue, creditCard.BaseFactor);
+				
+			creditCard.BaseBonus =  calcBaseBonus(creditCard.BaseFactor,
+				creditCard.PointValue,
+				spendatures.filter(spendature => spendature.category === 'Misc')[0].monthlyValue);
+			
+			const catBonus = creditCard.RewardCategories.map(category => category.Bonus);
+			creditCard.MonthlyRewardValue = calcMonthlyRewardValue(catBonus, creditCard.BaseBonus);
+				
+			creditCard.AnnualRewardValue = calcYearlyRewardValue(creditCard.MonthlyRewardValue);
+				
+			creditCard.AnnualRewardTotal = calcAnnualRewardValue(monthlyTransactions, creditCard.BonusRewardMinTransaction,
+				creditCard.AnnualRewardValue, creditCard.BonusReward, creditCard.TravelBonus);
+				
+			creditCard.RewardOneYear = calcRewardOneYear(creditCard.AnnualRewardTotal, creditCard.WelcomeBonus,
+					creditCard.AnnualFeeYearOne);
+				
+			creditCard.RewardTwoYears =	calcRewardTwoYears(creditCard.RewardOneYear, creditCard.AnnualRewardTotal,
+					creditCard.AnnualFeeYearOnePlus);
+				
+			creditCard.RewardFiveYears = calcRewardFiveYears(creditCard.RewardOneYear, creditCard.AnnualRewardTotal,
+						creditCard.AnnualFeeYearOnePlus);
+						
+			return creditCard;
+		}));
 	}
-	catch (e) {
+	catch (e){
 		reject(e);
-	}
+	}	
 });
 
 export { calcCategoryBonus
@@ -152,5 +140,6 @@ export { calcCategoryBonus
 	,calcAnnualRewardValue
 	,calcRewardOneYear
 	,calcRewardTwoYears
-	,calcRewardFiveYears };
+	,calcRewardFiveYears
+	,calcCreditCardRewards };
 

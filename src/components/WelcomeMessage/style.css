@@ -1,0 +1,25 @@
+.welcome {
+    grid-area: welcome;
+    padding: 56px 20px;
+    color: #FFFFFF;
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; 
+    -ms-grid-row-span: 1;
+}
+
+.welcomeButtonContainer {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media (max-width : 768px) {
+    .welcomeButtonContainer {
+        display: block;
+    }
+
+    .welcome {
+        min-height: 100vh;
+    }
+ }

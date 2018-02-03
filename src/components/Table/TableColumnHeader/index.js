@@ -1,6 +1,6 @@
 import { h } from 'preact';
 import { IconArrowDown } from '../../Icons/IconArrowDown.js';
-import style from './style';
+import style from './style.css';
 const TableColumnHeader = ({ allowSorting, sortDirection, onHeaderClick, children, index, sortActiveIndex }) => {
 
 	const handleClick = () => {

@@ -1,13 +1,18 @@
 .header {
-	position: fixed;
+	/*position: fixed;*/
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 56px;
 	padding: 12px 0;
-	background: #673AB7;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	background: var(--mdc-theme-primary, #6200ee);
+	/*box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 	z-index: 50;
+	grid-area: header;
+
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+	-ms-grid-column-span: 2;
 }
 
 .header h1 {
@@ -58,4 +63,25 @@
 .header nav a:active {
 	background: transparent;
 }
+
+.headerLabelLarge {
+	display: block;
+}
+
+.headerLabelSmall {
+	display: none;
+}
+
+@media (max-width : 500px) {
+	.headerLabelLarge {
+		display: none;
+	}
+	
+	.headerLabelSmall {
+		display: block;
+	}
+ }
+ 
+
+
 

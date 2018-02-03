@@ -1,16 +1,18 @@
 import { h, Component } from 'preact';
-import { Router } from 'preact-router';
-
+import style from './style.css';
 import { Header } from '../components/Header';
+import { WelcomeMessage } from '../components/WelcomeMessage/index.js';
 import Spendatures from '../components/Spendatures';
 import CreditCards from '../components/CreditCards';
-//import SpendatureCategory from '../Utils/SpendatureCategory';
+
 
 export default class App extends Component {
 	
-	handleRoute = (e) => {
-		this.currentUrl = e.url;
-	};
+	handleGetStarted = () => {
+		const creditCardTable = document.getElementById('spendatureWrapper');
+		creditCardTable.scrollIntoView(true);
+
+	}
 
 	handleSubmitSpendatures = (spendatures, monthlyTransactions) => {
 		this.setState({
@@ -23,18 +25,25 @@ export default class App extends Component {
 		creditCardTable.scrollIntoView(true);
 		let scrolledY = window.scrollY;
 		if (scrolledY) {
-			window.scroll(0, scrolledY - 80);
+			window.scroll(0, scrolledY - 50);
 		}
 	};
+
+	constructor(props) {
+		super(props);
+		this.handleGetStarted = this.handleGetStarted.bind(this);
+	  }
 
 	render() {
 
 		return (
-			<div id="app">
-				<Header />
-				<Spendatures handleSubmitSpendatures={this.handleSubmitSpendatures} />
+			<div id="appContainer" className={style.app} >
+				<Header className={style.header} />
+				<WelcomeMessage onClick={this.handleGetStarted} />
+				<Spendatures handleSubmitSpendatures={this.handleSubmitSpendatures} className={style.spendatures} />
 				<CreditCards spendatures={this.state.spendatures}
 					monthlyTransactions={this.state.monthlyTransactions}
+					className={style.creditcards}
 				/>
 			</div>
 		);

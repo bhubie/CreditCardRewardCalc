@@ -1,32 +1,53 @@
 .header {
 	grid-area: header;
-	text-align:center;
-}
 
-.spendature {
-	grid-area: spendature;
+	-ms-grid-row: 1;
+    -ms-grid-column: 1; 
+	-ms-grid-column-span: 2;
+	text-align:center;
 }
 
 .button {
 	grid-area: button;
 	text-align:center;
-}
+	margin: 10px;
 
-.spendatures {
-	padding: 56px 20px;
+	-ms-grid-row: 6;
+    -ms-grid-column: 1; 
+	-ms-grid-column-span: 2;
+}
+.spendatureWrapper {
 	min-height: 100%;
 	width: 100%;
+	grid-area: spendatures;
+	padding: 56px 20px;
+	background: var(--mdc-theme-primary, #6200ee);
+
+	-ms-grid-row: 2;
+    -ms-grid-column: 2; 
+    -ms-grid-row-span: 1;
+}
+.spendatures {
+	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+	background: #FAFAFA;
+	padding: 0px 15px;
+	max-width: 650px;
+	margin: auto;
 	display: grid;
 	justify-items: center;
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 5px;
 	grid-template-areas:
-    "header  header"
-		"spendature spendature"
-		"spendature spendature"
-		"spendature spendature"
-		"spendature spendature"
-		"button button";
+    	"header  		header"
+		"spendature1 	spendature2"
+		"spendature3 	spendature4"
+		"spendature5 	spendature6"
+		"spendature7 	spendature8"
+		"button 		button";
+
+	display: -ms-grid; 
+	-ms-grid-columns: 1fr 1fr; 
+	
 }
 

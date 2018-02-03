@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.css';
 import SpendatureCategory from '../../Utils/SpendatureCategory';
 import { SpendatureItem } from './SpendatureItem/index.js';
 import { MonthlyTransactions } from './MonthlyTransactions/index.js';
@@ -44,7 +44,7 @@ export default class Spendatures extends Component {
 
 	}
 
-	render() {
+	render({ className }) {
 		let spendatureItems = this.state.spendatures.map( (spendatureCategory, index) => (
 			
 			<SpendatureItem category={spendatureCategory.category}
@@ -58,17 +58,19 @@ export default class Spendatures extends Component {
 		));
 		
 		return (
-			<div class={style.spendatures}>
+			<div id="spendatureWrapper" class={style.spendatureWrapper}>
+			<div id="spendaturesContainer" class={style.spendatures} >
 				<h1 class={style.header}>Monthly Spendatures</h1>
 				{ spendatureItems }
 				<MonthlyTransactions monthlyTransactions={this.state.monthlyTransactions}
 					handleMonthlyTransactionChange={this.handleMonthlyTransactionChange}
 				/>
 				<div class={style.button}>
-					<Button raised onClick={this.props.handleSubmitSpendatures.bind(this, this.state.spendatures, this.state.monthlyTransactions)}>
+					<Button raised className="mdc-theme--secondary-bg" onClick={this.props.handleSubmitSpendatures.bind(this, this.state.spendatures, this.state.monthlyTransactions)}>
 						Press to Calculate
 					</Button>
 				</div>
+			</div>
 			</div>
 		);
 	}

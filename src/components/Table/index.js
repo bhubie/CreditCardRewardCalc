@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import style from './style';
+import style from './style.css';
 import { TableColumnHeader } from './TableColumnHeader/index.js';
 import { formatAsCurrency } from '../../Utils/Utils.js';
 
@@ -54,23 +54,39 @@ export default class Table extends Component {
 			columnHeaders: this.props.columnHeaders
 		};
 
-		//this.setSortActiveIndex = this.setSortActiveIndex.bind(this);
 		this.onHeaderClick = this.onHeaderClick.bind(this);
 	}
 
 	renderRows(data, sortedColumn) {
-
 		let rows;
 		if (sortedColumn.sortDirection === 'Asc') {
-			rows = data.sort((a, b) => a[sortedColumn.name] > b[sortedColumn.name]);
+			rows = data.sort((a, b) => {
+				if (a[sortedColumn.name] < b[sortedColumn.name]) {
+					return -1;
+				}
+				if (a[sortedColumn.name] > b[sortedColumn.name]) {
+					return 1;
+				}
+				return 0;
+			});
 		}
 		else {
-			rows = data.sort((a, b) => a[sortedColumn.name] < b[sortedColumn.name]);
+			rows = data.sort((a, b) => { 
+				if (a[sortedColumn.name] > b[sortedColumn.name]) {
+					return -1;
+				}
+				if (a[sortedColumn.name] < b[sortedColumn.name]) {
+					return 1;
+				}
+				return 0;
+			});
 		}
 
+		console.log('Sorting rows!!');
+		console.log(rows);
 		const headers = this.state.columnHeaders;
 
-		return rows.map((item) => (<tr>
+		return rows.map((item, index) => (<tr key={index}>
 			{headers.map((header) =>
 				(<td class={header.isNumber ? style.tableColumnNumber : style.tableColumnString}>
 					{formatAsCurrency(item[header.name])}
@@ -94,16 +110,14 @@ export default class Table extends Component {
 		let rows = this.renderRows(this.props.tableData, this.state.columnHeaders[this.state.sortActiveIndex]);
 		
 		return (
-			<div id="creditCardContainer">
-				<table class={`${style.table} ${style.tableBordered}`} id="creditCardTable">
-					<thead>
-						{tableColumnHeaders}
-					</thead>
-					<tbody>
-						{rows}
-					</tbody>
-				</table>
-			</div>
+			<table class={`${style.table} ${style.tableBordered}`} id="creditCardTable">
+				<thead>
+					{tableColumnHeaders}
+				</thead>
+				<tbody>
+					{rows}
+				</tbody>
+			</table>
 		);
 	}
 }

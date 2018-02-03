@@ -1,0 +1,34 @@
+.app {
+	/*padding: 56px 20px;*/
+	background: var(--mdc-theme-primary, #6200ee);
+	min-height: 100%;
+	width: 100%;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr;
+	grid-row-gap: 5px;
+	grid-template-areas:
+        "header  header"
+        "welcome spendatures"
+	"creditcards creditcards";
+	
+	display: -ms-grid; 
+	-ms-grid-columns: 1fr 1fr; 
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+
+@media (max-width : 768px) {
+   .app {
+	display: block;
+    	grid-template-columns: 1fr;
+	grid-column-gap: 20px;
+	grid-row-gap: 5px;
+	grid-template-areas:
+        "header"
+        "welcome"
+        "spendatures"
+	"creditcards";
+   }
+}
+

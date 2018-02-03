@@ -1,0 +1,53 @@
+.spendature {
+	grid-area: spendature;
+}
+
+.spendature:global(#spendature0) {
+	grid-area: spendature1;
+	-ms-grid-row: 2;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature1) {
+    grid-area: spendature2;
+	-ms-grid-row: 2;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature2) {
+    grid-area: spendature3;
+	-ms-grid-row: 3;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature3) {
+    grid-area: spendature4;
+	-ms-grid-row: 3;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature4) {
+    grid-area: spendature5;
+	-ms-grid-row: 4;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature5){
+    grid-area: spendature6;
+	-ms-grid-row: 4;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.spendature:global(#spendature6) {
+    grid-area: spendature7;
+	-ms-grid-row: 5;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
