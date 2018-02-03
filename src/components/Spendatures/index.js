@@ -1,6 +1,5 @@
 import { h, Component } from 'preact';
 import style from './style.css';
-import SpendatureCategory from '../../Utils/SpendatureCategory';
 import { SpendatureItem } from './SpendatureItem/index.js';
 import { MonthlyTransactions } from './MonthlyTransactions/index.js';
 import Button from 'preact-material-components/Button';
@@ -22,17 +21,11 @@ export default class Spendatures extends Component {
 		this.setState({ monthlyTransactions: event.target.value });
 	}
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			spendatures: [new SpendatureCategory('Restaurants', 200.00),
-				new SpendatureCategory('Groceries', 300.00),
-				new SpendatureCategory('Air Travel', 50.00),
-				new SpendatureCategory('Other Travel', 50.00),
-				new SpendatureCategory('Gas', 80.00),
-				new SpendatureCategory('Amazon', 200.00),
-				new SpendatureCategory('Misc', 800.00)],
-			monthlyTransactions: 50
+			spendatures: props.spendatures,
+			monthlyTransactions: props.monthlyTransactions
 		};
 	}
 
@@ -44,8 +37,8 @@ export default class Spendatures extends Component {
 
 	}
 
-	render({ className }) {
-		let spendatureItems = this.state.spendatures.map( (spendatureCategory, index) => (
+	render({ className, spendatures, monthlyTransactions}) {
+		let spendatureItems = spendatures.map( (spendatureCategory, index) => (
 			
 			<SpendatureItem category={spendatureCategory.category}
 				monthlyValue={spendatureCategory.monthlyValue}
@@ -62,7 +55,7 @@ export default class Spendatures extends Component {
 			<div id="spendaturesContainer" class={style.spendatures} >
 				<h1 class={style.header}>Monthly Spendatures</h1>
 				{ spendatureItems }
-				<MonthlyTransactions monthlyTransactions={this.state.monthlyTransactions}
+				<MonthlyTransactions monthlyTransactions={monthlyTransactions}
 					handleMonthlyTransactionChange={this.handleMonthlyTransactionChange}
 				/>
 				<div class={style.button}>

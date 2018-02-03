@@ -81,9 +81,7 @@ export default class Table extends Component {
 				return 0;
 			});
 		}
-
-		console.log('Sorting rows!!');
-		console.log(rows);
+		
 		const headers = this.state.columnHeaders;
 
 		return rows.map((item, index) => (<tr key={index}>

@@ -3,6 +3,7 @@ import style from './style.css';
 import { Header } from '../components/Header';
 import { WelcomeMessage } from '../components/WelcomeMessage/index.js';
 import Spendatures from '../components/Spendatures';
+import { defaultSpendatures, defaultMonthlyTransactions} from '../Utils/Utils.js';
 import CreditCards from '../components/CreditCards';
 
 
@@ -32,6 +33,10 @@ export default class App extends Component {
 	constructor(props) {
 		super(props);
 		this.handleGetStarted = this.handleGetStarted.bind(this);
+		this.state = {
+			spendatures: defaultSpendatures,
+			monthlyTransactions: defaultMonthlyTransactions
+		};
 	  }
 
 	render() {
@@ -40,7 +45,9 @@ export default class App extends Component {
 			<div id="appContainer" className={style.app} >
 				<Header className={style.header} />
 				<WelcomeMessage onClick={this.handleGetStarted} />
-				<Spendatures handleSubmitSpendatures={this.handleSubmitSpendatures} className={style.spendatures} />
+				<Spendatures handleSubmitSpendatures={this.handleSubmitSpendatures} 
+				className={style.spendatures} spendatures={this.state.spendatures}
+				monthlyTransactions={this.state.monthlyTransactions} />
 				<CreditCards spendatures={this.state.spendatures}
 					monthlyTransactions={this.state.monthlyTransactions}
 					className={style.creditcards}

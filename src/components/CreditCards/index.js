@@ -5,16 +5,16 @@ import style from './style.css';
 
 export default class CreditCards extends Component {
 
-	calculateCreditCardRewards(nextProps){
-		calcCreditCardRewards(this.state.creditCards, nextProps.spendatures, nextProps.monthlyTransactions).then(results => {
+	calculateCreditCardRewards(nextProps, creditCards){
+		calcCreditCardRewards(creditCards, nextProps.spendatures, nextProps.monthlyTransactions).then(results => {
 			this.setState({
 				creditCards: results
 			});
 		});
 	}
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			creditCards: []
 		};
@@ -26,12 +26,12 @@ export default class CreditCards extends Component {
 			return res.json();
 		})
 		.then(j => {
-			this.setState({ creditCards: j.creditCards });
+			this.calculateCreditCardRewards(this.props, j.creditCards);
 		});
 	}
 
 	componentWillReceiveProps (nextProps){
-		this.calculateCreditCardRewards(nextProps);
+		this.calculateCreditCardRewards(nextProps, this.state.creditCards);
 	}
 
 	render() {
