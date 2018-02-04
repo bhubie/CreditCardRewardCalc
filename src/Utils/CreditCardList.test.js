@@ -143,12 +143,12 @@ describe('CreditCardList.json', () => {
 	});
 });
 
-describe('Amex', () => {
+describe('American Express', () => {
 	describe('Everyday Card', () => {
 		const everyday = creditCardList.creditCards[0];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Everyday',
+			Institution: 'American Express',
+			Name: 'Amex EveryDay®',
 			RewardType: 'Points',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -204,8 +204,8 @@ describe('Amex', () => {
 	describe('Everyday Preferred Card', () => {
 		const everydayPreferred = creditCardList.creditCards[1];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Everyday Preferred',
+			Institution: 'American Express',
+			Name: 'Amex EveryDay® Preferred',
 			RewardType: 'Points',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -261,8 +261,8 @@ describe('Amex', () => {
 	describe('Blue Delta SkyMiles', () => {
 		const blueDeltaSkyMiles = creditCardList.creditCards[2];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Blue Delta SkyMiles',
+			Institution: 'American Express',
+			Name: 'Blue Delta SkyMiles®',
 			RewardType: 'Airfare',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -318,8 +318,8 @@ describe('Amex', () => {
 	describe('Gold Delta SkyMiles', () => {
 		const goldDeltaSkyMiles = creditCardList.creditCards[3];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Gold Delta SkyMiles',
+			Institution: 'American Express',
+			Name: 'Gold Delta SkyMiles®',
 			RewardType: 'Airfare',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -375,8 +375,8 @@ describe('Amex', () => {
 	describe('Platinum Delta SkyMiles', () => {
 		const platinumDeltaSkyMiles = creditCardList.creditCards[4];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Platinum Delta SkyMiles',
+			Institution: 'American Express',
+			Name: 'Platinum Delta SkyMiles®',
 			RewardType: 'Airfare',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -432,8 +432,8 @@ describe('Amex', () => {
 	describe('Delta Reserve', () => {
 		const reserveDeltaSkyMiles = creditCardList.creditCards[5];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Delta Reserve',
+			Institution: 'American Express',
+			Name: 'Delta Reserve®',
 			RewardType: 'Airfare',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -489,7 +489,7 @@ describe('Amex', () => {
 	describe('Premier Rewards Gold', () => {
 		const premierRewardsGold = creditCardList.creditCards[6];
 		const expectedValues = {
-			Institution: 'Amex',
+			Institution: 'American Express',
 			Name: 'Premier Rewards Gold',
 			RewardType: 'Points',
 			BaseFactor: 1,
@@ -546,8 +546,8 @@ describe('Amex', () => {
 	describe('Platinum Card', () => {
 		const platinumCard = creditCardList.creditCards[7];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Platinum Card',
+			Institution: 'American Express',
+			Name: 'Platinum Card®',
 			RewardType: 'Points',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -603,7 +603,7 @@ describe('Amex', () => {
 	describe('Green Card', () => {
 		const greenCard = creditCardList.creditCards[8];
 		const expectedValues = {
-			Institution: 'Amex',
+			Institution: 'American Express',
 			Name: 'Green Card',
 			RewardType: 'Points',
 			BaseFactor: 1,
@@ -657,125 +657,11 @@ describe('Amex', () => {
 		testCreditCard(greenCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
 	});
 	
-	describe('Blue', () => {
-		const blueCard = creditCardList.creditCards[9];
-		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Blue',
-			RewardType: 'Points',
-			BaseFactor: 1,
-			PointValue: 0.01,
-			BonusReward: 0,
-			BonusRewardMinTransaction: 0,
-			WelcomeBonus: 0,
-			TravelBonus: 0,
-			AnnualFeeYearOne: 0,
-			AnnualFeeYearOnePlus: 0,
-			BaseBonus: 8,
-			MonthlyRewardValue: 16.80,
-			YearlyRewardValue: 201.60,
-			AnnualRewardTotal: 201.60,
-			RewardYearOne: 201.60,
-			RewardYearTwo: 403.20,
-			RewardYearFive: 1008.00,
-			RewardCategories: [{
-				Name: 'Restaurants',
-				Factor: 1,
-				Cap: 0,
-				Bonus: 2
-			}, {
-				Name: 'Groceries',
-				Factor: 1,
-				Cap: 0,
-				Bonus: 3
-			}, {
-				Name: 'Air Travel',
-				Factor: 1,
-				Cap: 0,
-				Bonus: .50
-			}, {
-				Name: 'Other Travel',
-				Factor: 1,
-				Cap: 0,
-				Bonus: .50
-			}, {
-				Name: 'Gas',
-				Factor: 1,
-				Cap: 0,
-				Bonus: .80
-			}, {
-				Name: 'Amazon',
-				Factor: 1,
-				Cap: 0,
-				Bonus: 2
-			}]
-		};
-	
-		testCreditCard(blueCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
-	});
-	
-	describe('Blue Cash', () => {
-		const blueCashCard = creditCardList.creditCards[10];
-		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Blue Cash',
-			RewardType: 'Cash',
-			BaseFactor: 1,
-			PointValue: 0.01,
-			BonusReward: 0,
-			BonusRewardMinTransaction: 0,
-			WelcomeBonus: 200,
-			TravelBonus: 0,
-			AnnualFeeYearOne: 0,
-			AnnualFeeYearOnePlus: 0,
-			BaseBonus: 8,
-			MonthlyRewardValue: 23.60,
-			YearlyRewardValue: 283.20,
-			AnnualRewardTotal: 283.20,
-			RewardYearOne: 483.20,
-			RewardYearTwo: 766.40,
-			RewardYearFive: 1616.00,
-			RewardCategories: [{
-				Name: 'Restaurants',
-				Factor: 1,
-				Cap: 0,
-				Bonus: 2
-			}, {
-				Name: 'Groceries',
-				Factor: 3,
-				Cap: 6000,
-				Bonus: 9
-			}, {
-				Name: 'Air Travel',
-				Factor: 1,
-				Cap: 0,
-				Bonus: .50
-			}, {
-				Name: 'Other Travel',
-				Factor: 1,
-				Cap: 0,
-				Bonus: .50
-			}, {
-				Name: 'Gas',
-				Factor: 2,
-				Cap: 0,
-				Bonus: 1.60
-			}, {
-				Name: 'Amazon',
-				Factor: 1,
-				Cap: 0,
-				Bonus: 2
-			}]
-		};
-	
-		testCreditCard(blueCashCard, expectedValues, defaultSpendatures, defaultMonthlyTransactions);
-	});
-	
 	describe('Blue Cash Preferred', () => {
-		const blueCashPreferredCard = creditCardList.creditCards[11];
+		const blueCashPreferredCard = creditCardList.creditCards[9];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Blue Cash Preferred',
+			Institution: 'American Express',
+			Name: 'Blue Cash Preferred®',
 			RewardType: 'Cash',
 			BaseFactor: 1,
 			PointValue: 0.01,
@@ -829,10 +715,10 @@ describe('Amex', () => {
 	});
 	
 	describe('Starwood Preferred Guest', () => {
-		const starwoodPreferredGuestCard = creditCardList.creditCards[12];
+		const starwoodPreferredGuestCard = creditCardList.creditCards[10];
 		const expectedValues = {
-			Institution: 'Amex',
-			Name: 'Starwood Preferred Guest',
+			Institution: 'American Express',
+			Name: 'Starwood Preferred Guest®',
 			RewardType: 'Hotel',
 			BaseFactor: 1,
 			PointValue: 0.018,
@@ -886,9 +772,9 @@ describe('Amex', () => {
 	});
 	
 	describe('Hilton Honors', () => {
-		const hiltonHonorsCard = creditCardList.creditCards[13];
+		const hiltonHonorsCard = creditCardList.creditCards[11];
 		const expectedValues = {
-			Institution: 'Amex',
+			Institution: 'American Express',
 			Name: 'Hilton Honors',
 			RewardType: 'Hotel',
 			BaseFactor: 1,
@@ -943,9 +829,9 @@ describe('Amex', () => {
 	});
 	
 	describe('Hilton Honors Surpass', () => {
-		const hiltonHonorsSurpassCard = creditCardList.creditCards[14];
+		const hiltonHonorsSurpassCard = creditCardList.creditCards[12];
 		const expectedValues = {
-			Institution: 'Amex',
+			Institution: 'American Express',
 			Name: 'Hilton Honors Surpass',
 			RewardType: 'Hotel',
 			BaseFactor: 1,
