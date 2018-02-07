@@ -5,7 +5,7 @@ const Disclaimer = () => (
 	<div id="disclaimerContainer" class={style.disclaimer} >
 		<h1>Disclaimer</h1>
 		<p>
-			The information contained on https://creditcardrewardcalc.github.io website (the "Service") is for general information purposes only.
+			The information contained on https://creditcardrewardcalc.netlify.com website (the "Service") is for general information purposes only.
 		</p>
 		<p>
 			Credit Card Reward Calc assumes no responsibility for errors or omissions in the contents on the Service.
