@@ -23,7 +23,7 @@
 	padding: 56px 20px;
 	background: var(--mdc-theme-primary, #6200ee);
 
-	-ms-grid-row: 2;
+	-ms-grid-row: 1;
     -ms-grid-column: 2; 
     -ms-grid-row-span: 1;
 }

@@ -8,11 +8,6 @@
 	background: var(--mdc-theme-primary, #6200ee);
 	/*box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); */
 	z-index: 50;
-	grid-area: header;
-
-	-ms-grid-row: 1;
-	-ms-grid-column: 1;
-	-ms-grid-column-span: 2;
 }
 
 .header h1 {

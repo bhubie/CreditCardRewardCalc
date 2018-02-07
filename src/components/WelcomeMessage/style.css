@@ -2,7 +2,7 @@
     grid-area: welcome;
     padding: 56px 20px;
     color: #FFFFFF;
-    -ms-grid-row: 2;
+    -ms-grid-row: 1;
     -ms-grid-column: 1; 
     -ms-grid-row-span: 1;
 }
