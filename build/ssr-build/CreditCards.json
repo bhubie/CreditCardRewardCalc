@@ -1,0 +1,589 @@
+{
+    "creditCards": [
+        {
+            "Institution": "American Express",
+            "Name": "Amex EveryDay®",
+            "RewardType": "Points",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name":  "Amazon",
+                    "Factor": 1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0.20,
+            "BonusRewardMinTransaction": 20,
+            "WelcomeBonus": 100.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 0
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Amex EveryDay® Preferred",
+            "RewardType": "Points",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 3,
+                    "Cap": 6000
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0.50,
+            "BonusRewardMinTransaction": 30,
+            "WelcomeBonus": 150.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 95,
+            "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Blue Delta SkyMiles®",
+            "RewardType": "Airfare",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 100.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 0
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Gold Delta SkyMiles®",
+            "RewardType": "Airfare",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 600.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Platinum Delta SkyMiles®",
+            "RewardType": "Airfare",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 700.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 195,
+            "AnnualFeeYearOnePlus": 195
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Delta Reserve®",
+            "RewardType": "Airfare",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 400.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 450,
+            "AnnualFeeYearOnePlus": 450
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Premier Rewards Gold",
+            "RewardType": "Points",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 3,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 500.00,
+            "TravelBonus": 100,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 195
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Platinum Card®",
+            "RewardType": "Points",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 600.00,
+            "TravelBonus": 200,
+            "AnnualFeeYearOne": 550,
+            "AnnualFeeYearOnePlus": 550
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Green Card",
+            "RewardType": "Points",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 2,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 250.00,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Blue Cash Preferred®",
+            "RewardType": "Cash",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 6,
+                    "Cap": 6000
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 3,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.01,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 250,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 95,
+            "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Starwood Preferred Guest®",
+            "RewardType": "Hotel",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.018,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 300,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 95
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Hilton Honors",
+            "RewardType": "Hotel",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 7,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 5,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.006,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 500,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 0,
+            "AnnualFeeYearOnePlus": 0
+        },
+        {
+            "Institution": "American Express",
+            "Name": "Hilton Honors Surpass",
+            "RewardType": "Hotel",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 12,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.006,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 450,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 75,
+            "AnnualFeeYearOnePlus": 75
+        }
+    ]
+}
