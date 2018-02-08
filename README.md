@@ -1,4 +1,10 @@
-# {{ name }}
+# Credit Card Reward Calc
+
+https://creditcardrewardcalc.netlify.com
+
+Calculator that will find help find you the best reward credit card for you based on your monthly expenditures.
+
+See a missing credit card, or one that has incorrect information? Please, open an issue.
 
 ## CLI Commands
 
@@ -7,13 +13,23 @@
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+preact watch
 
 # build for production with minification
-npm run build
+preact build
 
 # test the production build locally
-npm run serve
+preact serve
+
+# run tests
+npm test
 ```
 
-For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).
+# Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. run tests locally (`npm test`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. **Create New Pull Request**
