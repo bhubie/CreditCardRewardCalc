@@ -10,7 +10,7 @@ const WelcomeMessage = (props) => (
 	<div id="welcomeMessageContainer" class={style.welcome} >
 		<h1>Welcome!</h1>
 		<p>
-            Find the Reward Credit Card that will give you the most bang for your buck. Get started by entering your Monthly Spendatures.
+            Find the Reward Credit Card that will give you the most bang for your buck. Get started by entering your Monthly Expenditures.
 		</p>
 		<p>
 			The accuracy of the information presented on this site cannot be gauranteed and should be used for informational purposes only.

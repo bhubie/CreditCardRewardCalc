@@ -57,13 +57,13 @@ const calcYearlyRewardValue = (monthlyRewardValue) => {
 	return(round(yearlyRewardValue, 2));
 };
 
-const setRewardCategoryBonuses = (spendatureCategories, creditCardRewardCategories, creditCardPointValue, creditCardBaseFactor) => {
+const setRewardCategoryBonuses = (expenditureCategories, creditCardRewardCategories, creditCardPointValue, creditCardBaseFactor) => {
 	try {
 		creditCardRewardCategories.map((category) => {
-			let spendatureCatValues = spendatureCategories.filter(rewardCategory => rewardCategory.category === category.Name);
-			if (spendatureCatValues[0] !== undefined) {
-				category.Bonus = calcCategoryBonus(spendatureCatValues[0].monthlyValue,
-					spendatureCatValues[0].yearlyValue,
+			let expenditureCatValues = expenditureCategories.filter(rewardCategory => rewardCategory.category === category.Name);
+			if (expenditureCatValues[0] !== undefined) {
+				category.Bonus = calcCategoryBonus(expenditureCatValues[0].monthlyValue,
+					expenditureCatValues[0].yearlyValue,
 					category.Cap,
 					category.Factor,
 					creditCardPointValue,
@@ -96,16 +96,16 @@ const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOne
 			return(round(rewardOneYear + ((annualRewardValue - annualFeeYearOnePlus) * 4), 2));
 };
 
-const calcCreditCardRewards = (creditCards, spendatures, monthlyTransactions) => new Promise((resolve, reject) => {
+const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) => new Promise((resolve, reject) => {
 	try {
 		resolve(creditCards.map((creditCard) => {
 				
-			creditCard.RewardCategories = setRewardCategoryBonuses(spendatures, creditCard.RewardCategories
+			creditCard.RewardCategories = setRewardCategoryBonuses(expenditures, creditCard.RewardCategories
 				,creditCard.PointValue, creditCard.BaseFactor);
 				
 			creditCard.BaseBonus =  calcBaseBonus(creditCard.BaseFactor,
 				creditCard.PointValue,
-				spendatures.filter(spendature => spendature.category === 'Misc')[0].monthlyValue);
+				expenditures.filter(expenditure => expenditure.category === 'Misc')[0].monthlyValue);
 			
 			const catBonus = creditCard.RewardCategories.map(category => category.Bonus);
 			creditCard.MonthlyRewardValue = calcMonthlyRewardValue(catBonus, creditCard.BaseBonus);
