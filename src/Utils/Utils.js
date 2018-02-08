@@ -1,4 +1,4 @@
-import SpendatureCategory from './SpendatureCategory.js';
+import ExpenditureCategory from './ExpenditureCategory.js';
 
 
 const formatAsCurrency = (number) => {
@@ -12,17 +12,17 @@ const formatAsCurrency = (number) => {
 
 };
 
-const defaultSpendatures = [new SpendatureCategory('Restaurants', 200.00),
-	new SpendatureCategory('Groceries', 300.00),
-	new SpendatureCategory('Air Travel', 50.00),
-	new SpendatureCategory('Other Travel', 50.00),
-	new SpendatureCategory('Gas', 80.00),
-	new SpendatureCategory('Amazon', 200.00),
-	new SpendatureCategory('Misc', 800.00)];
+const defaultExpenditures = [new ExpenditureCategory('Restaurants', 200.00),
+	new ExpenditureCategory('Groceries', 300.00),
+	new ExpenditureCategory('Air Travel', 50.00),
+	new ExpenditureCategory('Other Travel', 50.00),
+	new ExpenditureCategory('Gas', 80.00),
+	new ExpenditureCategory('Amazon', 200.00),
+	new ExpenditureCategory('Misc', 800.00)];
 
 const defaultMonthlyTransactions = 50;
 
 
 export { formatAsCurrency
-	,defaultSpendatures
+	,defaultExpenditures
 	,defaultMonthlyTransactions };

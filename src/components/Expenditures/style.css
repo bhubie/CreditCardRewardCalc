@@ -16,10 +16,10 @@
     -ms-grid-column: 1; 
 	-ms-grid-column-span: 2;
 }
-.spendatureWrapper {
+.expenditureWrapper {
 	min-height: 100%;
 	width: 100%;
-	grid-area: spendatures;
+	grid-area: expenditures;
 	padding: 56px 20px;
 	background: var(--mdc-theme-primary, #6200ee);
 
@@ -27,7 +27,7 @@
     -ms-grid-column: 2; 
     -ms-grid-row-span: 1;
 }
-.spendatures {
+.expenditures {
 	box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),0px 2px 2px 0px rgba(0, 0, 0, 0.14),0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 	background: #FAFAFA;
 	padding: 0px 15px;
@@ -40,10 +40,10 @@
 	grid-row-gap: 5px;
 	grid-template-areas:
     	"header  		header"
-		"spendature1 	spendature2"
-		"spendature3 	spendature4"
-		"spendature5 	spendature6"
-		"spendature7 	spendature8"
+		"expenditure1 	expenditure2"
+		"expenditure3 	expenditure4"
+		"expenditure5 	expenditure6"
+		"expenditure7 	expenditure8"
 		"button 		button";
 
 	display: -ms-grid; 

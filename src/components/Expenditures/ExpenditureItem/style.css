@@ -1,51 +1,51 @@
-.spendature {
-	grid-area: spendature;
+.expenditure {
+	grid-area: expenditure;
 }
 
-.spendature:global(#spendature0) {
-	grid-area: spendature1;
+.expenditure:global(#expenditure0) {
+	grid-area: expenditure1;
 	-ms-grid-row: 2;
 	-ms-grid-column: 1;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature1) {
-    grid-area: spendature2;
+.expenditure:global(#expenditure1) {
+    grid-area: expenditure2;
 	-ms-grid-row: 2;
 	-ms-grid-column: 2;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature2) {
-    grid-area: spendature3;
+.expenditure:global(#expenditure2) {
+    grid-area: expenditure3;
 	-ms-grid-row: 3;
 	-ms-grid-column: 1;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature3) {
-    grid-area: spendature4;
+.expenditure:global(#expenditure3) {
+    grid-area: expenditure4;
 	-ms-grid-row: 3;
 	-ms-grid-column: 2;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature4) {
-    grid-area: spendature5;
+.expenditure:global(#expenditure4) {
+    grid-area: expenditure5;
 	-ms-grid-row: 4;
 	-ms-grid-column: 1;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature5){
-    grid-area: spendature6;
+.expenditure:global(#expenditure5){
+    grid-area: expenditure6;
 	-ms-grid-row: 4;
 	-ms-grid-column: 2;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
-.spendature:global(#spendature6) {
-    grid-area: spendature7;
+.expenditure:global(#expenditure6) {
+    grid-area: expenditure7;
 	-ms-grid-row: 5;
 	-ms-grid-column: 1;
 	-ms-grid-row-align: center;

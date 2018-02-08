@@ -3,8 +3,8 @@ import TextField from 'preact-material-components/TextField';
 import 'preact-material-components/TextField/style.css';
 import style from './style.css';
 
-const SpendatureItem = ({ id, category, monthlyValue, yearlyValue, handleMonthlyValueChange }) => (
-	<div id={'spendature' + id} class={style.spendature}>
+const ExpenditureItem = ({ id, category, monthlyValue, yearlyValue, handleMonthlyValueChange }) => (
+	<div id={'expenditure' + id} class={style.expenditure}>
 		<TextField multiline={false}
 			value={monthlyValue} onKeyUp={handleMonthlyValueChange}
 			label={category} id={id}
@@ -16,4 +16,4 @@ const SpendatureItem = ({ id, category, monthlyValue, yearlyValue, handleMonthly
 	
 );
 
-export { SpendatureItem };
+export { ExpenditureItem };

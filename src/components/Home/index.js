@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 import style from './style.css';
 import { WelcomeMessage } from '../WelcomeMessage/index.js';
-import Spendatures from '../Spendatures/index.js';
-import { defaultSpendatures, defaultMonthlyTransactions} from '../../Utils/Utils.js';
+import Expenditures from '../Expenditures/index.js';
+import { defaultExpenditures, defaultMonthlyTransactions} from '../../Utils/Utils.js';
 import CreditCards from '../CreditCards/index.js';
 
 
@@ -13,14 +13,14 @@ export default class Home extends Component {
 	};
 
 	handleGetStarted = () => {
-		const creditCardTable = document.getElementById('spendatureWrapper');
+		const creditCardTable = document.getElementById('expenditureWrapper');
 		creditCardTable.scrollIntoView(true);
 
 	}
 
-	handleSubmitSpendatures = (spendatures, monthlyTransactions) => {
+	handleSubmitExpenditures = (expenditures, monthlyTransactions) => {
 		this.setState({
-			spendatures,
+			expenditures,
 			monthlyTransactions
 		});
 
@@ -37,7 +37,7 @@ export default class Home extends Component {
 		super(props);
 		this.handleGetStarted = this.handleGetStarted.bind(this);
 		this.state = {
-			spendatures: defaultSpendatures,
+			expenditures: defaultExpenditures,
 			monthlyTransactions: defaultMonthlyTransactions
 		};
 	  }
@@ -47,10 +47,10 @@ export default class Home extends Component {
 		return (
             <div id="homeContainer" class={style.home}>
 				<WelcomeMessage onClick={this.handleGetStarted} />
-				<Spendatures handleSubmitSpendatures={this.handleSubmitSpendatures} 
-				className={style.spendatures} spendatures={this.state.spendatures}
+				<Expenditures handleSubmitExpenditures={this.handleSubmitExpenditures} 
+				className={style.expenditures} expenditures={this.state.expenditures}
 				monthlyTransactions={this.state.monthlyTransactions} />
-				<CreditCards spendatures={this.state.spendatures}
+				<CreditCards expenditures={this.state.expenditures}
 					monthlyTransactions={this.state.monthlyTransactions}
 					className={style.creditcards}
 				/>

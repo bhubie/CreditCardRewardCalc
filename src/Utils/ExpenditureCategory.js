@@ -1,4 +1,4 @@
-class SpendatureCategory {
+class ExpenditureCategory {
 	constructor (category, monthlyValue) {
 		this.category = category;
 		this.monthlyValue = monthlyValue;
@@ -12,4 +12,4 @@ class SpendatureCategory {
 	
 }
 
-export default SpendatureCategory;
+export default ExpenditureCategory;

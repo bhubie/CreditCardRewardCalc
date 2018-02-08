@@ -6,7 +6,7 @@ import style from './style.css';
 export default class CreditCards extends Component {
 
 	calculateCreditCardRewards(nextProps, creditCards){
-		calcCreditCardRewards(creditCards, nextProps.spendatures, nextProps.monthlyTransactions).then(results => {
+		calcCreditCardRewards(creditCards, nextProps.expenditures, nextProps.monthlyTransactions).then(results => {
 			this.setState({
 				creditCards: results
 			});
