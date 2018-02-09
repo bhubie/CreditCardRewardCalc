@@ -885,3 +885,462 @@ describe('American Express', () => {
 		testCreditCard(hiltonHonorsSurpassCard, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
 	});
 });
+
+describe('Chase', () => {
+	describe('Sapphire Preferred', () => {
+		const sapphirePreferred = creditCardList.creditCards[13];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Sapphire Preferred',
+			RewardType: 'Points',
+			BaseFactor: 1,
+			PointValue: 0.0125,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 500,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 95,
+			BaseBonus: 10,
+			MonthlyRewardValue: 24.75,
+			YearlyRewardValue: 297.00,
+			AnnualRewardTotal: 297.00,
+			RewardYearOne: 797.00,
+			RewardYearTwo: 999.00,
+			RewardYearFive: 1605.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 5
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3.75
+			}, {
+				Name: 'Air Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1.25
+			}, {
+				Name: 'Other Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1.25
+			}, {
+				Name: 'Gas',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2.50
+			}]
+		};
+	
+		testCreditCard(sapphirePreferred, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Sapphire Reserve', () => {
+		const sapphireReserve = creditCardList.creditCards[14];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Sapphire Reserve',
+			RewardType: 'Points',
+			BaseFactor: 1,
+			PointValue: 0.015,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 500,
+			TravelBonus: 300,
+			AnnualFeeYearOne: 450,
+			AnnualFeeYearOnePlus: 450,
+			BaseBonus: 12,
+			MonthlyRewardValue: 34.20,
+			YearlyRewardValue: 410.40,
+			AnnualRewardTotal: 710.40,
+			RewardYearOne: 760.40,
+			RewardYearTwo: 1020.80,
+			RewardYearFive: 1802.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 9
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 4.50
+			}, {
+				Name: 'Air Travel',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 2.25
+			}, {
+				Name: 'Other Travel',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 2.25
+			}, {
+				Name: 'Gas',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 1.20
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}]
+		};
+	
+		testCreditCard(sapphireReserve, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Freedom Unlimited', () => {
+		const freedomUnlimted = creditCardList.creditCards[15];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Freedom Unlimited®',
+			RewardType: 'Cash',
+			BaseFactor: 1.5,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 150,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 12,
+			MonthlyRewardValue: 25.20,
+			YearlyRewardValue: 302.40,
+			AnnualRewardTotal: 302.40,
+			RewardYearOne: 452.40,
+			RewardYearTwo: 754.80,
+			RewardYearFive: 1662.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Groceries',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 4.50
+			}, {
+				Name: 'Air Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Other Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Gas',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 1.20
+			}, {
+				Name: 'Amazon',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}]
+		};
+	
+		testCreditCard(freedomUnlimted, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Southwest Rapid Rewards Plus', () => {
+		const southwestRapidRewards = creditCardList.creditCards[16];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Southwest Rapid Rewards® Plus',
+			RewardType: 'Airfare',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 400,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 69,
+			AnnualFeeYearOnePlus: 69,
+			BaseBonus: 8,
+			MonthlyRewardValue: 17.30,
+			YearlyRewardValue: 207.60,
+			AnnualRewardTotal: 207.60,
+			RewardYearOne: 538.60,
+			RewardYearTwo: 677.20,
+			RewardYearFive: 1093.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Air Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .80
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}]
+		};
+	
+		testCreditCard(southwestRapidRewards, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Southwest Rapid Rewards Premier', () => {
+		const southwestRapidRewards = creditCardList.creditCards[17];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Southwest Rapid Rewards® Premier',
+			RewardType: 'Airfare',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 400,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 99,
+			AnnualFeeYearOnePlus: 99,
+			BaseBonus: 8,
+			MonthlyRewardValue: 17.30,
+			YearlyRewardValue: 207.60,
+			AnnualRewardTotal: 207.60,
+			RewardYearOne: 508.60,
+			RewardYearTwo: 617.20,
+			RewardYearFive: 943,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Air Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .80
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}]
+		};
+	
+		testCreditCard(southwestRapidRewards, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Amazon Rewards Visa', () => {
+		const amazonRewardsVisa = creditCardList.creditCards[18];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Amazon Rewards Visa',
+			RewardType: 'Cash',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 50,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 8,
+			MonthlyRewardValue: 23.60,
+			YearlyRewardValue: 283.20,
+			AnnualRewardTotal: 283.20,
+			RewardYearOne: 333.20,
+			RewardYearTwo: 616.40,
+			RewardYearFive: 1466.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 4
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Air Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1.60
+			}, {
+				Name: 'Amazon',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 6
+			}]
+		};
+	
+		testCreditCard(amazonRewardsVisa, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Amazon Prime Rewards Visa', () => {
+		const amazonRewardsVisa = creditCardList.creditCards[19];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'Amazon Prime Rewards Visa',
+			RewardType: 'Cash',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 60,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 8,
+			MonthlyRewardValue: 27.60,
+			YearlyRewardValue: 331.20,
+			AnnualRewardTotal: 331.20,
+			RewardYearOne: 391.20,
+			RewardYearTwo: 722.40,
+			RewardYearFive: 1716.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 4
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Air Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1.60
+			}, {
+				Name: 'Amazon',
+				Factor: 5,
+				Cap: 0,
+				Bonus: 10
+			}]
+		};
+	
+		testCreditCard(amazonRewardsVisa, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('AARP Rewards', () => {
+		const AARP = creditCardList.creditCards[20];
+		const expectedValues = {
+			Institution: 'Chase',
+			Name: 'AARP® Rewards',
+			RewardType: 'Cash',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 0,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 8,
+			MonthlyRewardValue: 22.40,
+			YearlyRewardValue: 268.80,
+			AnnualRewardTotal: 268.80,
+			RewardYearOne: 268.80,
+			RewardYearTwo: 537.60,
+			RewardYearFive: 1344.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 6
+			}, {
+				Name: 'Groceries',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Air Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 2.40
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}]
+		};
+	
+		testCreditCard(AARP, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+	
+});
