@@ -12,6 +12,8 @@ html, body {
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	margin: 0 auto;
+    max-width: 1250px;
 }
 
 
