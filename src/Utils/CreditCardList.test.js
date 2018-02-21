@@ -42,9 +42,11 @@ describe('CreditCardList.json', () => {
 	});
 
 	it('should contain an Institution', () => {
+		const institutions = ["American Express", "Chase", "Capital One®"];
 		creditCardList.creditCards.forEach(creditCard => {
 			expect(creditCard.Institution).toBeDefined();
 			expect(creditCard.Institution).not.toBe('');
+			expect(institutions).toContain(creditCard.Institution);
 		});
 	});
 
@@ -56,9 +58,11 @@ describe('CreditCardList.json', () => {
 	});
 
 	it('should contain a RewardType', () => {
+		const rewardTypes = ['Points', 'Cash', 'Airfare', 'Hotel'];
 		creditCardList.creditCards.forEach(creditCard => {
 			expect(creditCard.RewardType).toBeDefined();
 			expect(creditCard.RewardType).not.toBe('');
+			expect(rewardTypes).toContain(creditCard.RewardType);
 		});
 	});
 
@@ -1343,4 +1347,291 @@ describe('Chase', () => {
 		testCreditCard(AARP, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
 	});
 	
+});
+
+describe('Capital One', () => {
+	describe('VentureOne®', () => {
+		const ventureOne = creditCardList.creditCards[21];
+		const expectedValues = {
+			Institution: 'Capital One®',
+			Name: 'VentureOne®',
+			RewardType: 'Airfare',
+			BaseFactor: 1.25,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 200,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 10,
+			MonthlyRewardValue: 21.01,
+			YearlyRewardValue: 252.12,
+			AnnualRewardTotal: 252.12,
+			RewardYearOne: 452.12,
+			RewardYearTwo: 704.24,
+			RewardYearFive: 1460.60,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: 2.50
+			}, {
+				Name: 'Groceries',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: 3.75
+			}, {
+				Name: 'Air Travel',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: .63
+			}, {
+				Name: 'Other Travel',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: .63
+			}, {
+				Name: 'Gas',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Amazon',
+				Factor: 1.25,
+				Cap: 0,
+				Bonus: 2.50
+			}]
+		};
+	
+		testCreditCard(ventureOne, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Venture®', () => {
+		const venture = creditCardList.creditCards[22];
+		const expectedValues = {
+			Institution: 'Capital One®',
+			Name: 'Venture®',
+			RewardType: 'Airfare',
+			BaseFactor: 2,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 500,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 95,
+			BaseBonus: 16,
+			MonthlyRewardValue: 33.60,
+			YearlyRewardValue: 403.20,
+			AnnualRewardTotal: 403.20,
+			RewardYearOne: 903.20,
+			RewardYearTwo: 1211.40,
+			RewardYearFive: 2136.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 4
+			}, {
+				Name: 'Groceries',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 6
+			}, {
+				Name: 'Air Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Other Travel',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1
+			}, {
+				Name: 'Gas',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 1.60
+			}, {
+				Name: 'Amazon',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 4
+			}]
+		};
+	
+		testCreditCard(venture, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('QuicksilverOne®', () => {
+		const quicksilverOne = creditCardList.creditCards[23];
+		const expectedValues = {
+			Institution: 'Capital One®',
+			Name: 'QuicksilverOne®',
+			RewardType: 'Cash',
+			BaseFactor: 1.5,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 0,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 39,
+			AnnualFeeYearOnePlus: 39,
+			BaseBonus: 12,
+			MonthlyRewardValue: 25.20,
+			YearlyRewardValue: 302.40,
+			AnnualRewardTotal: 302.40,
+			RewardYearOne: 263.40,
+			RewardYearTwo: 526.80,
+			RewardYearFive: 1317.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Groceries',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 4.50
+			}, {
+				Name: 'Air Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Other Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Gas',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 1.20
+			}, {
+				Name: 'Amazon',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}]
+		};
+	
+		testCreditCard(quicksilverOne, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Quicksilver®', () => {
+		const quicksilverOne = creditCardList.creditCards[24];
+		const expectedValues = {
+			Institution: 'Capital One®',
+			Name: 'Quicksilver®',
+			RewardType: 'Cash',
+			BaseFactor: 1.5,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 150,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 12,
+			MonthlyRewardValue: 25.20,
+			YearlyRewardValue: 302.40,
+			AnnualRewardTotal: 302.40,
+			RewardYearOne: 452.40,
+			RewardYearTwo: 754.80,
+			RewardYearFive: 1662.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}, {
+				Name: 'Groceries',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 4.50
+			}, {
+				Name: 'Air Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Other Travel',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: .75
+			}, {
+				Name: 'Gas',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 1.20
+			}, {
+				Name: 'Amazon',
+				Factor: 1.5,
+				Cap: 0,
+				Bonus: 3
+			}]
+		};
+	
+		testCreditCard(quicksilverOne, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
+
+	describe('Savor®', () => {
+		const savor = creditCardList.creditCards[25];
+		const expectedValues = {
+			Institution: 'Capital One®',
+			Name: 'Savor®',
+			RewardType: 'Cash',
+			BaseFactor: 1,
+			PointValue: 0.01,
+			BonusReward: 0,
+			BonusRewardMinTransaction: 0,
+			WelcomeBonus: 150,
+			TravelBonus: 0,
+			AnnualFeeYearOne: 0,
+			AnnualFeeYearOnePlus: 0,
+			BaseBonus: 8,
+			MonthlyRewardValue: 23.80,
+			YearlyRewardValue: 285.60,
+			AnnualRewardTotal: 285.60,
+			RewardYearOne: 435.60,
+			RewardYearTwo: 721.2,
+			RewardYearFive: 1578.00,
+			RewardCategories: [{
+				Name: 'Restaurants',
+				Factor: 3,
+				Cap: 0,
+				Bonus: 6
+			}, {
+				Name: 'Groceries',
+				Factor: 2,
+				Cap: 0,
+				Bonus: 6
+			}, {
+				Name: 'Air Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Other Travel',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .50
+			}, {
+				Name: 'Gas',
+				Factor: 1,
+				Cap: 0,
+				Bonus: .80
+			}, {
+				Name: 'Amazon',
+				Factor: 1,
+				Cap: 0,
+				Bonus: 2
+			}]
+		};
+	
+		testCreditCard(savor, expectedValues, defaultExpenditures, defaultMonthlyTransactions);
+	});
 });
