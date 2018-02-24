@@ -1,23 +1,18 @@
-import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from './CreditCardRewardCalculator';
+import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears, getTopCard, calcCreditCardRewards } from './CreditCardRewardCalculator';
 import expect from 'expect';
 import ExpenditureCategory from './ExpenditureCategory';
-import { MockCreditCard } from './TestHelpers.js';
+import { MockCreditCard, MockCreditCarList } from './TestHelpers.js';
+import {defaultExpenditures, defaultMonthlyTransactions } from './Utils.js';
 
 
-let expenditures = [new ExpenditureCategory('Restaurants', 200),
-	new ExpenditureCategory('Groceries', 300),
-	new ExpenditureCategory('Air Travel', 50),
-	new ExpenditureCategory('Other Travel', 50),
-	new ExpenditureCategory('Gas', 80),
-	new ExpenditureCategory('Amazon', 200),
-	new ExpenditureCategory('Misc', 800)];
+
     
 describe('CreditCardRewardCalculator.js test', () => {
 	describe('calcCategoryBonus', () => {
 		it('should calculate a bonus of 2 when there is no category cap', () => {
 
-			const categoryBonus = calcCategoryBonus(expenditures[0].monthlyValue,
-				expenditures[0].yearlyValue,
+			const categoryBonus = calcCategoryBonus(defaultExpenditures[0].monthlyValue,
+				defaultExpenditures[0].yearlyValue,
 				MockCreditCard.RewardCategories[0].Cap,
 				MockCreditCard.RewardCategories[0].Factor,
 				MockCreditCard.PointValue,
@@ -30,8 +25,8 @@ describe('CreditCardRewardCalculator.js test', () => {
 		it('should calculate a bonus of 2 when there is a category cap and the yearly category value is less than the cap', () => {
 
 			const categoryCap = 15000;
-			const categoryBonus = calcCategoryBonus(expenditures[0].monthlyValue,
-				expenditures[0].yearlyValue,
+			const categoryBonus = calcCategoryBonus(defaultExpenditures[0].monthlyValue,
+				defaultExpenditures[0].yearlyValue,
 				categoryCap,
 				MockCreditCard.RewardCategories[0].Factor,
 				MockCreditCard.PointValue,
@@ -56,7 +51,7 @@ describe('CreditCardRewardCalculator.js test', () => {
 	describe('calcBaseBonus', () => {
 		it('should return a base bonus of 8', () => {
 			const baseBonus = 
-			calcBaseBonus(MockCreditCard.BaseFactor, MockCreditCard.PointValue, expenditures[6].monthlyValue);
+			calcBaseBonus(MockCreditCard.BaseFactor, MockCreditCard.PointValue, defaultExpenditures[6].monthlyValue);
 			expect(baseBonus).toBe(8);	
 		});
 	});
@@ -83,7 +78,7 @@ describe('CreditCardRewardCalculator.js test', () => {
 	
 	describe('setRewardCategoryBonuses', () => {
 		it('should return an array of bonuses with the correct bonus value assigned for each reward category', () => {
-			const rewardCategories = setRewardCategoryBonuses(expenditures, MockCreditCard.RewardCategories, MockCreditCard.PointValue, MockCreditCard.BaseFactor)
+			const rewardCategories = setRewardCategoryBonuses(defaultExpenditures, MockCreditCard.RewardCategories, MockCreditCard.PointValue, MockCreditCard.BaseFactor)
 				
 			expect(rewardCategories[0].Bonus).toBe(2); //Restaurants
 			expect(rewardCategories[1].Bonus).toBe(6); //Groceries
@@ -133,6 +128,26 @@ describe('CreditCardRewardCalculator.js test', () => {
 		it('should return a reward five year value of 40', () => {
 			const rewardYearFive = calcRewardFiveYears(50, 50, 60);
 			expect(rewardYearFive).toBe(10);
+		});
+	});
+
+	describe('getTopCard', () => {
+		it('should return a top card of capital one venture for top reward card year one', async () => {
+			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			const topCard = await getTopCard(creditCards, 'RewardOneYear');
+			expect(topCard.Name).toBe('Capital One® - Venture®');
+		});
+
+		it('should return a top card of capital one venture for top reward card year two', async () => {
+			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			const topCard = await getTopCard(creditCards, 'RewardTwoYears');
+			expect(topCard.Name).toBe('Capital One® - Venture®');
+		});
+
+		it('should return a top card of capital one venture for top reward card year five', async () => {
+			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			const topCard = await getTopCard(creditCards, 'RewardFiveYears');
+			expect(topCard.Name).toBe('Capital One® - Venture®');
 		});
 	});
 });

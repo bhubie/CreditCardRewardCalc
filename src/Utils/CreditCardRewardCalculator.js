@@ -132,6 +132,26 @@ const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) =
 	}	
 });
 
+const getTopCard = (creditCards, year) => new Promise((resolve, reject) => {
+	try {
+		const bestCard = creditCards.reduce(function(prev, current) {
+			return (prev[year] > current[year]) ? prev : current
+		});
+
+		const topcard = {
+			Name: bestCard.Institution + ' - ' + bestCard.Name,
+			RewardOneYear: bestCard.RewardOneYear,
+			RewardTwoYear: bestCard.RewardTwoYears,
+			RewardFiveYears: bestCard.RewardFiveYears
+
+		};
+		resolve(topcard);
+	}
+	catch (e){
+		reject(e);
+	}	
+});
+
 export { calcCategoryBonus
 	,calcMonthlyRewardValue
 	,setRewardCategoryBonuses
@@ -141,5 +161,6 @@ export { calcCategoryBonus
 	,calcRewardOneYear
 	,calcRewardTwoYears
 	,calcRewardFiveYears
-	,calcCreditCardRewards };
+	,calcCreditCardRewards
+	,getTopCard };
 
