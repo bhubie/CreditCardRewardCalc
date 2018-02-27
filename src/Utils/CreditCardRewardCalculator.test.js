@@ -1,4 +1,4 @@
-import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears, getTopCard, calcCreditCardRewards } from './CreditCardRewardCalculator';
+import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears, getTopCard, calcCreditCardRewards, setBestCardObject } from './CreditCardRewardCalculator';
 import expect from 'expect';
 import ExpenditureCategory from './ExpenditureCategory';
 import { MockCreditCard, MockCreditCarList } from './TestHelpers.js';
@@ -131,22 +131,40 @@ describe('CreditCardRewardCalculator.js test', () => {
 		});
 	});
 
+	describe('setBestCardObject', () => {
+		it('should return the correct object based on the card passed in', async () => {
+			const card = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			const bestCard = setBestCardObject(card[0], 'Best Overall Card', 1);
+
+			const results = {
+				"CardType": "Points", 
+				"Name": "American Express - Amex EveryDay®", 
+				"Rank": 1, 
+				"RankWording": "Best Overall Card", 
+				"RewardFiveYears": 1525.6, 
+				"RewardOneYear": 385.12, 
+				"RewardTwoYear": 670.24
+			};
+			expect(bestCard).toEqual(results);
+		});
+	});
+
 	describe('getTopCard', () => {
 		it('should return a top card of capital one venture for top reward card year one', async () => {
 			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
-			const topCard = await getTopCard(creditCards, 'RewardOneYear');
+			const topCard = await getTopCard(creditCards, 'RewardOneYear', 1);
 			expect(topCard.Name).toBe('Capital One® - Venture®');
 		});
 
 		it('should return a top card of capital one venture for top reward card year two', async () => {
 			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
-			const topCard = await getTopCard(creditCards, 'RewardTwoYears');
+			const topCard = await getTopCard(creditCards, 'RewardTwoYears', 1);
 			expect(topCard.Name).toBe('Capital One® - Venture®');
 		});
 
 		it('should return a top card of capital one venture for top reward card year five', async () => {
 			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
-			const topCard = await getTopCard(creditCards, 'RewardFiveYears');
+			const topCard = await getTopCard(creditCards, 'RewardFiveYears', 1);
 			expect(topCard.Name).toBe('Capital One® - Venture®');
 		});
 	});
