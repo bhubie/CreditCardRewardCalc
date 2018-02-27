@@ -98,7 +98,7 @@ const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOne
 
 const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) => new Promise((resolve, reject) => {
 	try {
-		resolve(creditCards.map((creditCard) => {
+		resolve(creditCards.map((creditCard, index, array) => {
 				
 			creditCard.RewardCategories = setRewardCategoryBonuses(expenditures, creditCard.RewardCategories
 				,creditCard.PointValue, creditCard.BaseFactor);
@@ -123,7 +123,7 @@ const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) =
 				
 			creditCard.RewardFiveYears = calcRewardFiveYears(creditCard.RewardOneYear, creditCard.AnnualRewardTotal,
 						creditCard.AnnualFeeYearOnePlus);
-						
+			
 			return creditCard;
 		}));
 	}
@@ -132,25 +132,78 @@ const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) =
 	}	
 });
 
-const getTopCard = (creditCards, year) => new Promise((resolve, reject) => {
-	try {
-		const bestCard = creditCards.reduce(function(prev, current) {
-			return (prev[year] > current[year]) ? prev : current
+const getTopCards = (creditCards, year) => {
+	let topCards = []
+	getTopCard(creditCards, year)
+		.then(results => {
+			topCards.push(results);
+			return getSecondBestCard(creditCards, year);
+		}).then(results => {
+			topCards.push(results);
+			return topCards;
 		});
+};
 
-		const topcard = {
-			Name: bestCard.Institution + ' - ' + bestCard.Name,
-			RewardOneYear: bestCard.RewardOneYear,
-			RewardTwoYear: bestCard.RewardTwoYears,
-			RewardFiveYears: bestCard.RewardFiveYears
+const getTopCard = (creditCards, year, rank) => new Promise((resolve, reject) => {
+	try {
+		const values =  creditCards.map((creditCard) => creditCard[year]);
+		let biggest = -Infinity;
+		let second_biggest = -Infinity;
+		let third_biggest = -Infinity;
+		let filterValue;
+		let rankWording;
+		if(rank === 1) {
+			filterValue = Math.max.apply(null, values);
+			rankWording = 'Best Overall Card';
+		} 
+		else if (rank === 2) {
+			for (var i = 0, n = values.length; i < n; ++i) {
+				var nr = +values[i]; 
+				if (nr > biggest) {
+					second_biggest = biggest;
+					biggest = nr;
+				} else if (nr < biggest && nr > second_biggest) {
+					second_biggest = nr;
+				}
+			}
+			filterValue = second_biggest;
+			rankWording = 'Second Best Overall Card';
+		} 
+		else if (rank === 3) {
+			for (var i = 0, n = values.length; i < n; ++i) {
+				var nr = +values[i];
+				if (nr > biggest) {
+					third_biggest = second_biggest;
+					second_biggest = biggest;
+					biggest = nr;
+				} else if (nr < second_biggest && nr > third_biggest) {
+					third_biggest = nr;
+				}
+			}
+			filterValue = third_biggest;
+			rankWording = 'Third Best Overall Card';
+		}
 
-		};
-		resolve(topcard);
+		const card  = creditCards.filter(function(o) { return o[year] === filterValue; });
+		resolve(setBestCardObject(card[0], rankWording, rank));
 	}
 	catch (e){
 		reject(e);
 	}	
 });
+
+const setBestCardObject = (card, rankWording, rank) => {
+	const topcard = {
+		Name: card.Institution + ' - ' + card.Name,
+		RewardOneYear: card.RewardOneYear,
+		RewardTwoYear: card.RewardTwoYears,
+		RewardFiveYears: card.RewardFiveYears,
+		CardType: card.RewardType,
+		Rank: rank,
+		RankWording: rankWording
+	};
+	return topcard;
+}
 
 export { calcCategoryBonus
 	,calcMonthlyRewardValue
@@ -162,5 +215,6 @@ export { calcCategoryBonus
 	,calcRewardTwoYears
 	,calcRewardFiveYears
 	,calcCreditCardRewards
-	,getTopCard };
-
+	,getTopCards
+	,getTopCard
+	,setBestCardObject };

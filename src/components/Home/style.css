@@ -9,7 +9,6 @@
 	grid-row-gap: 5px;
 	grid-template-areas:
 		"welcome        expenditures"
-		"topcards		topcards"
 	    "creditcards    creditcards";
 	
 	display: -ms-grid; 
@@ -27,7 +26,6 @@
 	grid-template-areas:
         "welcome"
 		"expenditures"
-		"topcards"
 	    "creditcards";
    }
 }

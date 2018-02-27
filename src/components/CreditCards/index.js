@@ -1,14 +1,34 @@
 import { h, Component } from 'preact';
-import { calcCreditCardRewards } from '../../Utils/CreditCardRewardCalculator.js';
+import { calcCreditCardRewards, getTopCard } from '../../Utils/CreditCardRewardCalculator.js';
+import { TopCards } from '../TopCards/index.js';
 import  Table  from '../Table/index.js';
 import style from './style.css';
 
 export default class CreditCards extends Component {
 
 	calculateCreditCardRewards(nextProps, creditCards){
-		calcCreditCardRewards(creditCards, nextProps.expenditures, nextProps.monthlyTransactions).then(results => {
+		let cclist;
+		let bestCard;
+		let secondBestCard;
+		let thirdBestCard;
+
+		calcCreditCardRewards(creditCards, nextProps.expenditures, nextProps.monthlyTransactions)
+		.then(results => {
+			cclist = results;
+			return getTopCard(cclist, 'RewardFiveYears', 1);	
+		}).then(bestCard1 => {
+			bestCard = bestCard1;
+			return getTopCard(cclist, 'RewardFiveYears', 2);	
+		}).then(secondBestCard1 => {
+			secondBestCard = secondBestCard1;
+			return getTopCard(cclist, 'RewardFiveYears', 3);
+		}).then(thirdBestCard1 => {
+			thirdBestCard = thirdBestCard1;
 			this.setState({
-				creditCards: results
+				creditCards: cclist,
+				bestCard: bestCard,
+				secondBestCard: secondBestCard,
+				thirdBestCard: thirdBestCard1
 			});
 		});
 	}
@@ -37,6 +57,7 @@ export default class CreditCards extends Component {
 	render() {
 		return (
 			<div id="creditCardContainer" class={style.creditCardContainer} >
+				<TopCards bestCard={this.state.bestCard} secondBestCard={this.state.secondBestCard} thirdBestCard={this.state.thirdBestCard}/>
 				<Table tableData={this.state.creditCards}
 					defaultSortColumn="Institution"
 					columnHeaders={[{

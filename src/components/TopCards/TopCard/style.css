@@ -1,0 +1,106 @@
+.topCard {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 2px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 400px;
+    background: #FAFAFA;
+
+}
+
+.cardHeader{
+    padding: 16px;
+}
+
+.cardBody {
+    display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr;
+    grid-row-gap: 5px;
+    display: -ms-grid; 
+	-ms-grid-columns: 1fr 1fr; 
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+
+.cardTitle {
+    padding-top: 8px;
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-decoration: inherit;
+    text-transform: inherit;
+    margin: 0;
+}
+
+.cardSubTitle {
+    font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    color: rgba(0, 0, 0, 0.87);
+    color: var(--mdc-theme-text-primary-on-light, rgba(0, 0, 0, 0.87));
+    margin: -.063rem 0;
+}
+.cardActions {
+    padding: 8px;
+}
+.reward5YearContainer {
+    padding: 16px;
+    text-align: center;
+}
+.reward5YearContainer h3 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+.reward5YearContainer h1 {
+    font-size: 2.5rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.itemContainer {
+    padding: 16px;
+    text-align: center;
+}
+
+.itemContainer h2 {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+.itemContainer h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+
