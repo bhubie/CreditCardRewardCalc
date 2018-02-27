@@ -176,7 +176,12 @@ const getTopCard = (creditCards, year, rank) => new Promise((resolve, reject) =>
 					third_biggest = second_biggest;
 					second_biggest = biggest;
 					biggest = nr;
-				} else if (nr < second_biggest && nr > third_biggest) {
+				} 
+				else if (nr < biggest && nr > third_biggest){
+					third_biggest = second_biggest;
+					second_biggest = nr;
+				}
+				else if (nr < biggest && nr < second_biggest && nr > third_biggest) {
 					third_biggest = nr;
 				}
 			}

@@ -167,6 +167,19 @@ describe('CreditCardRewardCalculator.js test', () => {
 			const topCard = await getTopCard(creditCards, 'RewardFiveYears', 1);
 			expect(topCard.Name).toBe('Capital One® - Venture®');
 		});
+
+		it('should return the second best card when rank 2 is passed in', async () => {
+			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			const topCard = await getTopCard(creditCards, 'RewardFiveYears', 2);
+			expect(topCard.Name).toBe('American Express - Hilton Honors');
+		});
+
+		it('should return the third best card when rank 3 is passed in', async () => {
+			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
+			console.log(creditCards);
+			const topCard = await getTopCard(creditCards, 'RewardFiveYears', 3);
+			expect(topCard.Name).toBe('American Express - Amex EveryDay®');
+		});
 	});
 });
 

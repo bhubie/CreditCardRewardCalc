@@ -1,7 +1,7 @@
 import expect from 'expect';
 import { calcCategoryBonus, calcMonthlyRewardValue, setRewardCategoryBonuses, calcBaseBonus, calcYearlyRewardValue, calcAnnualRewardValue, calcRewardOneYear, calcRewardTwoYears, calcRewardFiveYears } from './CreditCardRewardCalculator';
 
-let MockCreditCard = {
+const MockCreditCard = {
 	Institution: "American Express",
 	Name: "Amex EveryDay®",
 	RewardType: "Points",
@@ -93,7 +93,53 @@ const MockCreditCard2 =  {
 	AnnualFeeYearOnePlus: 95
 }
 
-const MockCreditCarList = [MockCreditCard, MockCreditCard2];
+const MockCreditCard3 =  {
+	Institution: "American Express",
+	Name: "Hilton Honors",
+	RewardType: "Hotel",
+	RewardCategories: [
+		{
+			Name: "Restaurants",
+			Factor: 5,
+			Cap: 0
+		},
+		{
+			Name: "Groceries",
+			Factor: 5,
+			Cap: 0
+		},
+		{
+			Name: "Air Travel",
+			Factor: 1,
+			Cap: 0
+		},
+		{
+			Name: "Other Travel",
+			Factor: 7,
+			Cap: 0
+		},
+		{
+			Name: "Gas",
+			Factor: 5,
+			Cap: 0
+		},
+		{
+			Name: "Amazon",
+			Factor:1,
+			Cap: 0
+		}
+	],
+	BaseFactor: 1,
+	PointValue: 0.006,
+	BonusReward: 0,
+	BonusRewardMinTransaction: 0,
+	WelcomeBonus: 500,
+	TravelBonus: 0,
+	AnnualFeeYearOne: 0,
+	AnnualFeeYearOnePlus: 0
+};
+
+const MockCreditCarList = [MockCreditCard, MockCreditCard2, MockCreditCard3];
 
 const testRewardCategory = (rewardCategory, expectedValues, baseFactor, pointValue, expenditureCategory) => {
 
