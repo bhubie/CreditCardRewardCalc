@@ -11,7 +11,9 @@ const TopCards = (props) => (
             <TopCard creditCard={props.thirdBestCard} id='thirdBestCard'/>
         </div>
         <div class={style.button}>
-                <button class='mdc-button mdc-button--raised mdc-theme--secondary-bg'>
+                <button class='mdc-button mdc-button--raised mdc-theme--secondary-bg'
+                    onClick={props.handleViewAllCards}
+                >
                     VIEW ALL CARDS
                 </button>
             </div>

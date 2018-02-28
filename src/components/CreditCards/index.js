@@ -6,6 +6,15 @@ import style from './style.css';
 
 export default class CreditCards extends Component {
 
+	handleViewAllCards = () => {
+		const creditCardTable = document.getElementById('creditCardTable');
+		creditCardTable.scrollIntoView(true);
+		let scrolledY = window.scrollY;
+		if (scrolledY) {
+			window.scroll(0, scrolledY - 50);
+		}
+	}
+
 	calculateCreditCardRewards(nextProps, creditCards){
 		let cclist;
 		let bestCard;
@@ -57,7 +66,9 @@ export default class CreditCards extends Component {
 	render() {
 		return (
 			<div id="creditCardContainer" class={style.creditCardContainer} >
-				<TopCards bestCard={this.state.bestCard} secondBestCard={this.state.secondBestCard} thirdBestCard={this.state.thirdBestCard}/>
+				<TopCards bestCard={this.state.bestCard} secondBestCard={this.state.secondBestCard} thirdBestCard={this.state.thirdBestCard}
+					handleViewAllCards ={this.handleViewAllCards}
+				/>
 				<Table tableData={this.state.creditCards}
 					defaultSortColumn="Institution"
 					columnHeaders={[{
