@@ -29,9 +29,6 @@ const TopCard = (props) => (
                 <h1>{(props.creditCard != undefined) ? formatAsCurrency(props.creditCard.RewardOneYear) : ''}</h1>
             </div>
         </section>
-        <section id='cardActions' class={style.cardActions}>
-            <button class='mdc-card__action mdc-button mdc-button--compact'>APPLY</button>
-        </section>
     </div>
 );
 
