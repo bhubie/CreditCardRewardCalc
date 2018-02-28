@@ -108,14 +108,16 @@ export default class Table extends Component {
 		let rows = this.renderRows(this.props.tableData, this.state.columnHeaders[this.state.sortActiveIndex]);
 		
 		return (
-			<table class={`${style.table} ${style.tableBordered}`} id="creditCardTable">
-				<thead>
-					{tableColumnHeaders}
-				</thead>
-				<tbody>
-					{rows}
-				</tbody>
-			</table>
+			<div id='tableContainer' class={style.tableContainer}>
+				<table class={`${style.table} ${style.tableBordered}`} id="creditCardTable">
+					<thead>
+						{tableColumnHeaders}
+					</thead>
+					<tbody>
+						{rows}
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }

@@ -3,7 +3,7 @@ import style from './style.css';
 import { TopCard } from './TopCard/index.js';
 
 const TopCards = (props) => (
-    <div id='topCardsContainer'>
+    <div id='topCardsContainer' class={style.topCardContainer} >
         <TopCard creditCard={props.bestCard} />
         <TopCard creditCard={props.secondBestCard} />
         <TopCard creditCard={props.thirdBestCard} />

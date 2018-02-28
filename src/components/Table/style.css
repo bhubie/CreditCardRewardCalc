@@ -1,3 +1,7 @@
+.tableContainer {
+    overflow-x: auto;
+}
+
 .table {
     margin: auto;
    /* max-width: 100%; */
