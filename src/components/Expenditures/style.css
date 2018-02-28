@@ -11,7 +11,6 @@
 	grid-area: button;
 	text-align:center;
 	margin: 10px;
-
 	-ms-grid-row: 6;
     -ms-grid-column: 1; 
 	-ms-grid-column-span: 2;

@@ -7,9 +7,9 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
@@ -17,21 +17,25 @@
     overflow: hidden;
     width: 100%;
     max-width: 400px;
+  
     background: #FAFAFA;
 }
 .topCard:global(#bestCard) {
+    grid-area: onecard;
 	-ms-grid-row: 1;
 	-ms-grid-column: 1;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
 .topCard:global(#secondBestCard) {
+    grid-area: twocard;
 	-ms-grid-row: 1;
 	-ms-grid-column: 2;
 	-ms-grid-row-align: center;
 	-ms-grid-column-align: center;
 }
 .topCard:global(#thirdBestCard) {
+    grid-area: threecard;
 	-ms-grid-row: 1;
 	-ms-grid-column: 3;
 	-ms-grid-row-align: center;
