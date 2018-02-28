@@ -4,9 +4,9 @@ import { TopCard } from './TopCard/index.js';
 
 const TopCards = (props) => (
     <div id='topCardsContainer' class={style.topCardContainer} >
-        <TopCard creditCard={props.bestCard} />
-        <TopCard creditCard={props.secondBestCard} />
-        <TopCard creditCard={props.thirdBestCard} />
+        <TopCard creditCard={props.bestCard} id='bestCard'/>
+        <TopCard creditCard={props.secondBestCard} id='secondBestCard'/>
+        <TopCard creditCard={props.thirdBestCard} id='thirdBestCard'/>
     </div>
 );
 

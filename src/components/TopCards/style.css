@@ -7,14 +7,15 @@
     grid-row-gap: 5px;
     grid-column-gap: 15px;
     display: -ms-grid; 
-	-ms-grid-columns: 1fr 1fr 1fr; 
+    -ms-grid-columns: 1fr 1fr 1fr;
 	-ms-grid-row-align: center;
-	-ms-grid-column-align: center;
+    -ms-grid-column-align: center;
 }
 
 @media (max-width : 768px) {
     .topCardContainer {
      grid-template-columns: 1fr;
      grid-row-gap: 15px;
+     -ms-grid-columns: 1fr; 
     }
  }

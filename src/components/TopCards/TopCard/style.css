@@ -18,7 +18,24 @@
     width: 100%;
     max-width: 400px;
     background: #FAFAFA;
-
+}
+.topCard:global(#bestCard) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.topCard:global(#secondBestCard) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.topCard:global(#thirdBestCard) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 3;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
 }
 
 .cardHeader{
@@ -32,8 +49,6 @@
     grid-row-gap: 5px;
     display: -ms-grid; 
 	-ms-grid-columns: 1fr 1fr; 
-	-ms-grid-row-align: center;
-	-ms-grid-column-align: center;
 }
 
 .cardTitle {
@@ -90,6 +105,7 @@
     text-align: center;
 }
 
+
 .itemContainer h2 {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -102,10 +118,46 @@
     font-weight: 400;
     margin: 0;
 }
+.itemContainer:global(#itemCardType) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.itemContainer:global(#itemFiveYearEarnings) {
+	-ms-grid-row: 1;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.itemContainer:global(#itemTwoYearEarnings) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 1;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
+.itemContainer:global(#itemOneYearEarnings) {
+	-ms-grid-row: 2;
+	-ms-grid-column: 2;
+	-ms-grid-row-align: center;
+	-ms-grid-column-align: center;
+}
 
 @media (max-width : 768px) {
     .topCard {
      max-width: 100%;
+    }
+    .topCard:global(#bestCard) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+    }
+    .topCard:global(#secondBestCard) {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+    }
+    .topCard:global(#thirdBestCard) {
+        -ms-grid-row: 3;
+        -ms-grid-column: 1;
     }
  }
 
