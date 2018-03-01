@@ -3,6 +3,7 @@ import expect from 'expect';
 import ExpenditureCategory from './ExpenditureCategory';
 import { MockCreditCard, MockCreditCarList } from './TestHelpers.js';
 import {defaultExpenditures, defaultMonthlyTransactions } from './Utils.js';
+import CreditCards from './CreditCards.json';
 
 
 
@@ -176,9 +177,8 @@ describe('CreditCardRewardCalculator.js test', () => {
 
 		it('should return the third best card when rank 3 is passed in', async () => {
 			const creditCards = await calcCreditCardRewards(MockCreditCarList, defaultExpenditures, defaultMonthlyTransactions);
-			console.log(creditCards);
 			const topCard = await getTopCard(creditCards, 'RewardFiveYears', 3);
-			expect(topCard.Name).toBe('American Express - Amex EveryDay®');
+			expect(topCard.Name).toBe('American Express - Starwood Preferred Guest®');
 		});
 	});
 });

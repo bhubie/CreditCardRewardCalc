@@ -139,7 +139,99 @@ const MockCreditCard3 =  {
 	AnnualFeeYearOnePlus: 0
 };
 
-const MockCreditCarList = [MockCreditCard, MockCreditCard2, MockCreditCard3];
+const MockCard4 = {
+	"Institution": "American Express",
+            "Name": "Hilton Honors Surpass",
+            "RewardType": "Hotel",
+            "RewardCategories": [
+                {
+                    "Name": "Restaurants",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Groceries",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Air Travel",
+                    "Factor": 1,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Other Travel",
+                    "Factor": 12,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Gas",
+                    "Factor": 6,
+                    "Cap": 0
+                },
+                {
+                    "Name": "Amazon",
+                    "Factor":1,
+                    "Cap": 0
+                }
+            ],
+            "BaseFactor": 1,
+            "PointValue": 0.006,
+            "BonusReward": 0,
+            "BonusRewardMinTransaction": 0,
+            "WelcomeBonus": 450,
+            "TravelBonus": 0,
+            "AnnualFeeYearOne": 75,
+            "AnnualFeeYearOnePlus": 75
+};
+
+const MockCard5 = {
+	"Institution": "American Express",
+	"Name": "Starwood Preferred Guest®",
+	"RewardType": "Hotel",
+	"RewardCategories": [
+		{
+			"Name": "Restaurants",
+			"Factor": 1,
+			"Cap": 0
+		},
+		{
+			"Name": "Groceries",
+			"Factor": 1,
+			"Cap": 0
+		},
+		{
+			"Name": "Air Travel",
+			"Factor": 1,
+			"Cap": 0
+		},
+		{
+			"Name": "Other Travel",
+			"Factor": 5,
+			"Cap": 0
+		},
+		{
+			"Name": "Gas",
+			"Factor": 1,
+			"Cap": 0
+		},
+		{
+			"Name": "Amazon",
+			"Factor":1,
+			"Cap": 0
+		}
+	],
+	"BaseFactor": 1,
+	"PointValue": 0.018,
+	"BonusReward": 0,
+	"BonusRewardMinTransaction": 0,
+	"WelcomeBonus": 300,
+	"TravelBonus": 0,
+	"AnnualFeeYearOne": 0,
+	"AnnualFeeYearOnePlus": 95
+};
+
+const MockCreditCarList = [MockCreditCard,  MockCard5, MockCreditCard2, MockCreditCard3, MockCard4];
 
 const testRewardCategory = (rewardCategory, expectedValues, baseFactor, pointValue, expenditureCategory) => {
 
