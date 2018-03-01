@@ -45,6 +45,11 @@
     padding: 16px;
 }
 
+.headerContainer {
+    display: flex; 
+    justify-content: space-between;
+}
+
 .cardBody {
     display: grid;
 	justify-items: center;
@@ -55,7 +60,6 @@
 }
 
 .cardTitle {
-    padding-top: 8px;
     font-family: Roboto, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
