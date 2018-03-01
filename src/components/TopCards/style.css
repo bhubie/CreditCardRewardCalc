@@ -1,5 +1,9 @@
 .topCardContainer {
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .topCards {
     margin-top: 20px;
@@ -24,6 +28,9 @@
 }
 
 @media (max-width : 768px) {
+    .topCardContainer {
+        display: block;
+    }
     .topCards {
      grid-template-columns: 1fr;
      grid-template-areas:
@@ -32,5 +39,8 @@
         "threecard";
      grid-row-gap: 15px;
      -ms-grid-columns: 1fr; 
+    }
+    .button {
+        display: none;
     }
  }
