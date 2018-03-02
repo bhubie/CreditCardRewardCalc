@@ -14,7 +14,7 @@ export default class Home extends Component {
 
 	handleGetStarted = () => {
 		const creditCardTable = document.getElementById('expenditureWrapper');
-		creditCardTable.scrollIntoView(true);
+		creditCardTable.scrollIntoView({ behavior: 'smooth' });
 
 	}
 
