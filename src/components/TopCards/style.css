@@ -1,9 +1,12 @@
 .topCardContainer {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: center;
 }
 .topCards {
     margin-top: 20px;
