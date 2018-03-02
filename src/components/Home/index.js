@@ -26,11 +26,7 @@ export default class Home extends Component {
 
 		//Scroll To Credit Card Table
 		const creditCardTable = document.getElementById('creditCardContainer');
-		creditCardTable.scrollIntoView(true);
-		let scrolledY = window.scrollY;
-		if (scrolledY) {
-			window.scroll(0, scrolledY - 50);
-		}
+		creditCardTable.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	constructor(props) {

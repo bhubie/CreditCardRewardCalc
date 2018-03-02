@@ -8,11 +8,7 @@ export default class CreditCards extends Component {
 
 	handleViewAllCards = () => {
 		const creditCardTable = document.getElementById('creditCardTable');
-		creditCardTable.scrollIntoView(true);
-		let scrolledY = window.scrollY;
-		if (scrolledY) {
-			window.scroll(0, scrolledY - 50);
-		}
+		creditCardTable.scrollIntoView({ behavior: 'smooth' });
 	}
 
 	calculateCreditCardRewards(nextProps, creditCards){
