@@ -1,6 +1,5 @@
 import { h } from 'preact';
 import style from './style.css';
-import Button from 'preact-material-components/Button';
 import 'preact-material-components/Button/style.css';
 import 'preact-material-components/Theme/style.css';
 import { Router } from 'preact-router';
@@ -21,9 +20,9 @@ const WelcomeMessage = (props) => (
 			See a missing credit card, or one that has incorrect information? Please, open an issue on Github.
 		</p>
 		<div id="welcomeButtonContainer" class={style.welcomeButtonContainer}>
-			<Button raised className="mdc-theme--secondary-bg" onClick={props.onClick} >
+			<button className="mdc-button mdc-button--raised mdc-button mdc-button--raised mdc-theme--secondary-bg mdc-theme--secondary-bg" onClick={props.onClick} >
 				Get Started
-			</Button>
+			</button>
 		</div>
 	</div>
 );

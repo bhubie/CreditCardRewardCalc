@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 import style from './style.css';
 import { ExpenditureItem } from './ExpenditureItem/index.js';
 import { MonthlyTransactions } from './MonthlyTransactions/index.js';
-import Button from 'preact-material-components/Button';
 import 'preact-material-components/Button/style.css';
 import 'preact-material-components/Theme/style.css';
 
@@ -59,9 +58,9 @@ export default class expenditures extends Component {
 					handleMonthlyTransactionChange={this.handleMonthlyTransactionChange}
 				/>
 				<div class={style.button}>
-					<Button raised className="mdc-theme--secondary-bg" onClick={this.props.handleSubmitExpenditures.bind(this, this.state.expenditures, this.state.monthlyTransactions)}>
+					<button class='mdc-button mdc-button--raised mdc-button mdc-button--raised mdc-theme--secondary-bg mdc-theme--secondary-bg' onClick={this.props.handleSubmitExpenditures.bind(this, this.state.expenditures, this.state.monthlyTransactions)}>
 						Press to Calculate
-					</Button>
+					</button>
 				</div>
 			</div>
 			</div>
