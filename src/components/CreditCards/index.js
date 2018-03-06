@@ -66,6 +66,7 @@ export default class CreditCards extends Component {
 					handleViewAllCards ={this.handleViewAllCards}
 				/>
 				<Table tableData={this.state.creditCards}
+					tableTitle= 'Credit Cards'
 					defaultSortColumn="Institution"
 					columnHeaders={[{
 						friendlyName: 'Institution',
