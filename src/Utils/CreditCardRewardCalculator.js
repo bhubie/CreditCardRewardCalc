@@ -167,7 +167,7 @@ const getTopCard = (creditCards, year, rank) => new Promise((resolve, reject) =>
 				}
 			}
 			filterValue = second_biggest;
-			rankWording = 'Second Best Overall Card';
+			rankWording = '2nd Best Overall Card';
 		} 
 		else if (rank === 3) {
 			for (var i = 0, n = values.length; i < n; ++i) {
@@ -186,7 +186,7 @@ const getTopCard = (creditCards, year, rank) => new Promise((resolve, reject) =>
 				}
 			}
 			filterValue = third_biggest;
-			rankWording = 'Third Best Overall Card';
+			rankWording = '3rd Best Overall Card';
 		}
 		const card  = creditCards.filter(function(o) { return o[year] === filterValue; });
 		resolve(setBestCardObject(card[0], rankWording, rank));

@@ -4,8 +4,6 @@
     flex-direction: column;
     display: -ms-flexbox;
     -ms-flex-direction: column;
-    -ms-flex-align: center;
-    align-items: center;
     justify-content: center;
 }
 .topCards {
@@ -28,6 +26,9 @@
     text-align: center;
     margin-top: 15px;
     margin-bottom: 15px;
+}
+.topCardsLabel {
+    color: white;
 }
 
 @media (max-width : 768px) {

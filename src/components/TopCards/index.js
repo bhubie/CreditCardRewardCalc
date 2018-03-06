@@ -5,6 +5,9 @@ import { TopCard } from './TopCard/index.js';
 
 const TopCards = (props) => (
     <div class= {style.topCardContainer}> 
+        <h2 id='topCardsLabel' class={style.topCardsLabel}>
+            Top 3 Reward Cards Based On Monthly Expenditures
+        </h2>
         <div id='topCardsContainer' class={style.topCards} >
             <TopCard creditCard={props.bestCard} id='bestCard'/>
             <TopCard creditCard={props.secondBestCard} id='secondBestCard'/>
