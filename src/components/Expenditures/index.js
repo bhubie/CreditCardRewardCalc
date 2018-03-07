@@ -54,7 +54,7 @@ export default class expenditures extends Component {
 			<div id="expendituresContainer" class={style.expenditures} >
 				<h1 class={style.header}>Monthly Expenditures</h1>
 				{ expenditureItems }
-				<MonthlyTransactions monthlyTransactions={monthlyTransactions}
+				<MonthlyTransactions monthlyTransactions={this.state.monthlyTransactions}
 					handleMonthlyTransactionChange={this.handleMonthlyTransactionChange}
 				/>
 				<div class={style.button}>
