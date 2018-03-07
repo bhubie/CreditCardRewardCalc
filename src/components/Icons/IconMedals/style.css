@@ -1,0 +1,27 @@
+.emSvg {
+    height: 2.5em;
+    width: 2.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.first_place_medal {
+    background: url("https://twemoji.maxcdn.com/2/72x72/1f947.png");
+        background-image: url("https://twemoji.maxcdn.com/2/72x72/1f947.png");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/1f947.svg"),none;
+}
+
+.second_place_medal {
+    background: url("https://twemoji.maxcdn.com/2/72x72/1f948.png");
+        background-image: url("https://twemoji.maxcdn.com/2/72x72/1f948.png");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/1f948.svg"),none;
+}
+
+.third_place_medal {
+    background: url("https://twemoji.maxcdn.com/2/72x72/1f949.png");
+        background-image: url("https://twemoji.maxcdn.com/2/72x72/1f949.png");
+    background-image: url("https://twemoji.maxcdn.com/2/svg/1f949.svg"),none;
+}

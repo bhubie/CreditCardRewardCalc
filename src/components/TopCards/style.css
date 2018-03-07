@@ -1,0 +1,50 @@
+.topCardContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    display: -ms-flexbox;
+    -ms-flex-direction: column;
+    justify-content: center;
+}
+.topCards {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+	justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "onecard    twocard threecard"
+        "button     button  button";
+    grid-row-gap: 15px;
+    grid-column-gap: 15px;
+    display: -ms-grid; 
+    -ms-grid-columns: 1fr 1fr 1fr;
+	-ms-grid-row-align: center;
+    -ms-grid-column-align: center;
+}
+.button {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.topCardsLabel {
+    color: white;
+}
+
+@media (max-width : 768px) {
+    .topCardContainer {
+        display: block;
+    }
+    .topCards {
+     grid-template-columns: 1fr;
+     grid-template-areas:
+        "onecard"
+        "twocard" 
+        "threecard";
+     grid-row-gap: 15px;
+     -ms-grid-columns: 1fr; 
+    }
+    .button {
+        display: none;
+    }
+ }

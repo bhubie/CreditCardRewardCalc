@@ -8,7 +8,7 @@
 	grid-template-columns: 1fr 1fr;
 	grid-row-gap: 5px;
 	grid-template-areas:
-        "welcome        expenditures"
+		"welcome        expenditures"
 	    "creditcards    creditcards";
 	
 	display: -ms-grid; 
@@ -20,12 +20,12 @@
 @media (max-width : 768px) {
    .home {
 	display: block;
-    	grid-template-columns: 1fr;
+	grid-template-columns: 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 5px;
 	grid-template-areas:
         "welcome"
-        "expenditures"
+		"expenditures"
 	    "creditcards";
    }
 }

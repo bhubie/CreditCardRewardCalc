@@ -1,6 +1,9 @@
+.tableContainer {
+    overflow-x: auto;
+}
+
 .table {
     margin: auto;
-   /* max-width: 100%; */
     margin-bottom: 1rem;
     background-color: transparent;
     border-collapse: collapse;
@@ -25,7 +28,6 @@
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #e9ecef;
     flex-direction: row-reverse;
 }
   
@@ -46,11 +48,22 @@
     border: 1px solid #e9ecef;
 }
   
-.tableBordered thead th,
-.tableBordered thead td {
+.table thead th {
+    border-top: none;
+    border-bottom: 1px solid #e9ecef;
     border-bottom-width: 2px;
 }
 
 .tableColumnNumber {
     text-align: center;
+}
+
+.tableLabel {
+    font-size: 1.3125rem;
+    font-weight: 500;
+    line-height: 1.16667em;
+}
+
+.tableLabel th{
+    border: none !important;
 }

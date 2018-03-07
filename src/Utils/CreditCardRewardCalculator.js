@@ -98,7 +98,7 @@ const calcRewardFiveYears = (rewardOneYear,  annualRewardValue, annualFeeYearOne
 
 const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) => new Promise((resolve, reject) => {
 	try {
-		resolve(creditCards.map((creditCard) => {
+		resolve(creditCards.map((creditCard, index, array) => {
 				
 			creditCard.RewardCategories = setRewardCategoryBonuses(expenditures, creditCard.RewardCategories
 				,creditCard.PointValue, creditCard.BaseFactor);
@@ -123,7 +123,7 @@ const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) =
 				
 			creditCard.RewardFiveYears = calcRewardFiveYears(creditCard.RewardOneYear, creditCard.AnnualRewardTotal,
 						creditCard.AnnualFeeYearOnePlus);
-						
+			
 			return creditCard;
 		}));
 	}
@@ -131,6 +131,83 @@ const calcCreditCardRewards = (creditCards, expenditures, monthlyTransactions) =
 		reject(e);
 	}	
 });
+
+const getTopCards = (creditCards, year) => {
+	let topCards = []
+	getTopCard(creditCards, year)
+		.then(results => {
+			topCards.push(results);
+			return getSecondBestCard(creditCards, year);
+		}).then(results => {
+			topCards.push(results);
+			return topCards;
+		});
+};
+
+const getTopCard = (creditCards, year, rank) => new Promise((resolve, reject) => {
+	try {
+		const values =  creditCards.map((creditCard) => creditCard[year]);
+		let biggest = -Infinity;
+		let second_biggest = -Infinity;
+		let third_biggest = -Infinity;
+		let filterValue;
+		let rankWording;
+		if(rank === 1) {
+			filterValue = Math.max.apply(null, values);
+			rankWording = 'Best Overall Card';
+		} 
+		else if (rank === 2) {
+			for (var i = 0, n = values.length; i < n; ++i) {
+				var nr = +values[i]; 
+				if (nr > biggest) {
+					second_biggest = biggest;
+					biggest = nr;
+				} else if (nr < biggest && nr > second_biggest) {
+					second_biggest = nr;
+				}
+			}
+			filterValue = second_biggest;
+			rankWording = '2nd Best Overall Card';
+		} 
+		else if (rank === 3) {
+			for (var i = 0, n = values.length; i < n; ++i) {
+				var nr = +values[i];
+				if (nr > biggest) {
+					third_biggest = second_biggest;
+					second_biggest = biggest;
+					biggest = nr;
+				} 
+				else if (nr < biggest && nr > second_biggest){
+					third_biggest = second_biggest;
+					second_biggest = nr;
+				}
+				else if (nr < biggest && nr < second_biggest && nr > third_biggest) {
+					third_biggest = nr;
+				}
+			}
+			filterValue = third_biggest;
+			rankWording = '3rd Best Overall Card';
+		}
+		const card  = creditCards.filter(function(o) { return o[year] === filterValue; });
+		resolve(setBestCardObject(card[0], rankWording, rank));
+	}
+	catch (e){
+		reject(e);
+	}	
+});
+
+const setBestCardObject = (card, rankWording, rank) => {
+	const topcard = {
+		Name: card.Institution + ' - ' + card.Name,
+		RewardOneYear: card.RewardOneYear,
+		RewardTwoYear: card.RewardTwoYears,
+		RewardFiveYears: card.RewardFiveYears,
+		CardType: card.RewardType,
+		Rank: rank,
+		RankWording: rankWording
+	};
+	return topcard;
+}
 
 export { calcCategoryBonus
 	,calcMonthlyRewardValue
@@ -141,5 +218,7 @@ export { calcCategoryBonus
 	,calcRewardOneYear
 	,calcRewardTwoYears
 	,calcRewardFiveYears
-	,calcCreditCardRewards };
-
+	,calcCreditCardRewards
+	,getTopCards
+	,getTopCard
+	,setBestCardObject };

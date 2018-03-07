@@ -51,7 +51,8 @@ export default class Table extends Component {
 		super(props);
 		this.state = {
 			sortActiveIndex: this.setSortActiveIndex(this.props.defaultSortColumn, this.props.columnHeaders),
-			columnHeaders: this.props.columnHeaders
+			columnHeaders: this.props.columnHeaders,
+			tableTitle: this.props.tableTitle
 		};
 
 		this.onHeaderClick = this.onHeaderClick.bind(this);
@@ -106,16 +107,26 @@ export default class Table extends Component {
 		
 		
 		let rows = this.renderRows(this.props.tableData, this.state.columnHeaders[this.state.sortActiveIndex]);
+
+		let tableTitle = this.state.tableTitle != undefined ? (
+		<thead id='tableLabel' class={style.tableLabel}>
+			<th>
+				{this.state.tableTitle}
+			</th>
+		</thead>) : null;
 		
 		return (
-			<table class={`${style.table} ${style.tableBordered}`} id="creditCardTable">
-				<thead>
-					{tableColumnHeaders}
-				</thead>
-				<tbody>
-					{rows}
-				</tbody>
-			</table>
+			<div id='tableContainer' class={style.tableContainer}>
+				<table class={`${style.table}`} id="creditCardTable">
+					{tableTitle}
+					<thead>
+						{tableColumnHeaders}
+					</thead>
+					<tbody>
+						{rows}
+					</tbody>
+				</table>
+			</div>
 		);
 	}
 }
