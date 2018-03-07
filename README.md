@@ -23,6 +23,9 @@ preact serve
 
 # run tests
 npm test
+
+# run specific test
+npm test -- test_file_to_run
 ```
 
 # Contributing
