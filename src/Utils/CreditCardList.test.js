@@ -122,6 +122,14 @@ describe('CreditCardList.json', () => {
 		});
 	});
 
+	it('should contain a Link node', () => {
+		creditCardList.creditCards.forEach(creditCard => {
+			expect(creditCard.Link).toBeDefined();
+			expect(typeof creditCard.Link).toBe('string');
+			expect(creditCard.Link).toNotEqual('');
+		});
+	});
+	
 	describe('Credit Card Reward Categories', () => {
 		it('should contain a category Array', () => {
 			creditCardList.creditCards.forEach(creditCard => {
